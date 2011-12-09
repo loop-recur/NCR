@@ -5,4 +5,4 @@ require('support/date');
 
 App.setHost("http://quiet-waterfall-1228.herokuapp.com/api");
 
-Layouts.application();
+// Layouts.application();
