@@ -1,24 +1,25 @@
 Layouts.application = function() {
 	
 	var window1 = Ti.UI.createWindow({
-		backgroundColor:'#ffffffff',
-		height:768,
-		width:1024
+		backgroundImage:'images/NCR_iPad2_main_bg.png',
+		top:0,
+		bottom:0,
+		left:0,
+		right:0
 	});
 
 	var logo = Ti.UI.createView({
-		backgroundColor:'orange',
+		backgroundImage:'images/NCR_iPad_headerlogo.png',
 		height:150,
-		top:0,
+		top:10,
 		width:400
 	});
 
 	var nav = Layouts.nav();
 	
 	var main_content = Ti.UI.createView({
-		backgroundColor:'green',
 		top: 311,
-		height: "40%"
+		height: "48%"
 	});
 
 	var footer = Layouts.footer();
@@ -27,7 +28,7 @@ Layouts.application = function() {
 	window1.add(nav);
 	window1.add(main_content);
 	window1.add(footer);
-	window1.open();
+	window1.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 		
 	Ti.App.addEventListener('swapMain', App.swapView(main_content));
 }

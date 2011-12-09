@@ -4,12 +4,12 @@
         <target device="mobileweb">false</target>
         <target device="iphone">true</target>
         <target device="ipad">true</target>
-        <target device="android">true</target>
+        <target device="android">false</target>
         <target device="blackberry">false</target>
     </deployment-targets>
     <id>com.looprecur.ncr</id>
     <name>ncr</name>
-    <version>1.0</version>
+    <version>0.5</version>
     <publisher>brian</publisher>
     <url>http://looprecur.com</url>
     <description>not specified</description>
