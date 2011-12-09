@@ -1,9 +1,11 @@
 Layouts.nav = function() {
 	
 	var nav_view = Ti.UI.createView({
-		backgroundColor:'#E2E2E2',
+		backgroundImage:"images/nav/NCR_iPad2_button_row_bg.png",
 		top:189,
-		height:122
+		height:122,
+		left:0,
+		right:0
 	});
 
 	var schedule_button = Ti.UI.createButton({
@@ -11,7 +13,7 @@ Layouts.nav = function() {
 		backgroundSelectedImage:"images/nav/NCR_iPad_schedule_btn_active.png",
 		top:23,
 		// left:"14%",
-		left:20,
+		left:24,
 		height:83,
 		width:228
 	});
@@ -27,7 +29,7 @@ Layouts.nav = function() {
 		backgroundSelectedImage:"images/nav/NCR_iPad_events_btn_active.png",
 		top:23,
 		// right:"14%",
-		right:20,
+		right:24,
 		height:83,
 		width:228
 	});
