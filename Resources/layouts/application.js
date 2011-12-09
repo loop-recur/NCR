@@ -28,7 +28,7 @@ Layouts.application = function() {
 	window1.add(nav);
 	window1.add(main_content);
 	window1.add(footer);
-	window1.open();
+	window1.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 		
 	Ti.App.addEventListener('swapMain', App.swapView(main_content));
 }
