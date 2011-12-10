@@ -6,11 +6,18 @@ Layouts.footer = function() {
 	});
 
 	var news_bar = Ti.UI.createView({
-		backgroundImage:"images/footer/NCR_iPad_newsfeed_bar.png",
+		backgroundImage:"images/footer/NCR_iPad_newsfeed_bar_empty.png",
 		top:0,
 		left:0,
 		right:0,
 		height:40
+	});
+	
+	var news_feed = Ti.UI.createView({
+		backgroundImage:"images/footer/NCR_iPad2_news_feed_headeronly.png",
+		left:10,
+		width:107,
+		height:27
 	});
 	
 	var news_area = Ti.UI.createView({
@@ -58,6 +65,7 @@ Layouts.footer = function() {
 	});
 	
 	footer_container.add(news_bar);
+	news_bar.add(news_feed);
 	
 	button_area.add(twitter1_filter);
 	button_area.add(twitter2_filter);
