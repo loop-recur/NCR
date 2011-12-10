@@ -12,10 +12,15 @@ Layouts.footer = function() {
 		right:0,
 		height:40
 	});
-
-	footer_container.add(news_bar);
-
+	
 	var news_area = Ti.UI.createView({
+		width: 400,
+		height: 300,
+		top: 30,
+		left: 50
+	});
+
+	var button_area = Ti.UI.createView({
 		backgroundImage:"images/footer/NCR_iPad_newsfeed_bg.png",
 		bottom:0,
 		height:182
@@ -29,8 +34,8 @@ Layouts.footer = function() {
 		height:36,
 		width:145
 	});
-
-	news_area.add(twitter1_filter);
+	
+	twitter1_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter1_filter'}));
 
 	var twitter2_filter = Ti.UI.createButton({
 		backgroundImage:"images/footer/NCR_iPad_breakthrough_tag_btn_inactive.png",
@@ -40,8 +45,8 @@ Layouts.footer = function() {
 		height:36,
 		width:145
 	});
-
-	news_area.add(twitter2_filter);
+	
+	twitter2_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter2_filter'}));
 
 	var yammer_filter = Ti.UI.createButton({
 		backgroundImage:"images/footer/NCR_iPad_yammer_tag_btn_inactive.png",
@@ -51,9 +56,14 @@ Layouts.footer = function() {
 		height:36,
 		width:145
 	});
+	
+	footer_container.add(news_bar);
+	
+	button_area.add(twitter1_filter);
+	button_area.add(twitter2_filter);
+	button_area.add(yammer_filter);
 
-	news_area.add(yammer_filter);
-
+	footer_container.add(button_area);
 	footer_container.add(news_area);
 	
 	return footer_container;

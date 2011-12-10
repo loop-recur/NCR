@@ -15,12 +15,13 @@ Layouts.application = function() {
 		width:400
 	});
 
-	var nav = Layouts.nav();
 	
 	var main_content = Ti.UI.createView({
 		top: 311,
 		height: "48%"
 	});
+	
+	var nav = Layouts.nav(main_content);
 
 	var footer = Layouts.footer();
 	
@@ -30,5 +31,5 @@ Layouts.application = function() {
 	window1.add(footer);
 	window1.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 		
-	Ti.App.addEventListener('swapMain', App.swapView(main_content));
+	
 }

@@ -2,18 +2,20 @@ RestApi = function(name) {
 	pub_obj = {};
 	
 	function all(callbacks, params, options) {
-	
+		
 		var oldSuccess = callbacks.success || callbacks;
 		var oldError = callbacks.error || function(){};
+		
+		// if(options.load_cache) oldSuccess(Repository.get(name));
 				
 		callbacks.error = function(r) {
-			oldSuccess(Cache[name]);
+			oldSuccess(null);
 			if(r) oldError(r.responseText);
 		};
 		
 		callbacks.success = function(r) {
 			var json = JSON.parse(r.responseText);
-			Cache[name] = json;
+			Repository.set(name, json);
 			oldSuccess(json);
 		};
 		
@@ -24,14 +26,11 @@ RestApi = function(name) {
 		var oldSuccess = callbacks.success || callbacks;
 				
 		callbacks.error = function(r) {
-			var old_record = select("id == x.id".lambda().p(id), Cache[name])[0];
-			oldSuccess(old_record);
+			oldSuccess(null);
 		};
 		
 		callbacks.success = function(r) {
 			var json = JSON.parse(r.responseText);
-			var old_record = select("id == x.id".lambda().p(id), Cache[name])[0];
-			old_record ? Helpers.array_funs.replace(Cache[name], old_record, json) : Cache[name].unshift(json);
 			oldSuccess(json);
 		};
 		

@@ -1,10 +1,17 @@
 FileList = [
-	"helpers/application.js"
+	"config/sessions.js"
+	, "helpers/application.js"
+	, "ui/button_group.js"
 	, "helpers/ui.js"
+	, "lib/repository.js"
 	, "lib/formatter.js"
 	, "layouts/application.js"
 	, "layouts/nav.js"
 	, "layouts/footer.js"
 	, "controllers/sessions.js"
+	, "controllers/speakers.js"
+	, "controllers/tweets.js"
 	, "views/sessions/index.js"
+	, "views/speakers/index.js"
+	, "views/tweets/index.js"
 ]

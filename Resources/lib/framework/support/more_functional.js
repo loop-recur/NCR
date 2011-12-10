@@ -101,13 +101,26 @@ subtract = defn(function(x,y){
 	return y - x;
 });
 
-words = defn(function(x){
+words = function(x){
 	return x.split(/\s+/);
-});
+};
 
-unwords = defn(function(xs){
+unwords = function(xs){
 	return xs.join(" ");
-});
+};
+
+uniq = function(xs) {
+	var result = [];
+	for(var i=0;i<xs.length;i++ ) { if(result.indexOf(xs[i]) < 0) result.push(xs[i]); };
+	return result;
+}
+
+uniqBy = defn(function(fun, xs) {
+	var result = [];
+	for(var i=0;i<xs.length;i++ ) { if(compose(uniq, map(fun))(result) < 1) result.push(xs[i]); };
+	return result;
+})
+
 
 ifelse = defn(function(pred, f, g) {
 	return function() {
@@ -147,4 +160,8 @@ sortBy = function(fun, xs) {
 	}
 	var f = fun.toFunction();
 	return _sortBy(f, xs);
+}
+
+function argsToList(x){
+	return Array.prototype.slice.call(x);
 }

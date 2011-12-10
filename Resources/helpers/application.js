@@ -15,6 +15,3 @@ Helpers.Application.extractInteger = function(str) {
     return parseInt(str.replace("dp", ""));
 }
 
-function argsToList(a){
-	return Array.prototype.slice.call(a);
-}

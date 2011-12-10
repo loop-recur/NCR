@@ -10,12 +10,12 @@ App.action = defn(function(win, controller_action, args) {
 	Controllers[controller][action](view.p(win), params);
 });
 
-App.swapView = function(view) {
+App.swapView = function(view, action, params) {
 	_removeChildren = function(v) { if (v.children) map(function(c){ v.remove(c); }, v.children); }
 	
 	return function(e) {
 		_removeChildren(view);
-		App.action(view, e.action, e.args);
+		App.action(view, action, params);
 	}
 }
 
