@@ -1,7 +1,9 @@
 Controllers.sessions = (function() {
-	var Api = RestApi("sessions");
+	var _name = "sessions";
 	
-	var index = Api.all;
+	var index = function(view) {
+		App.db.find(_name, {}, view);
+	}
 		
 	return {index : index}
 })();

@@ -23,7 +23,11 @@ LoopRecur.Db = function(_db, isAndroid) {
 		_execute('DROP TABLE '+table_name);
 	}
 	
-	function find(table_name, query, cb) {
+	var delete_all = defn(function(table_name, cb) {
+		_execute("DELETE FROM "+table_name, false, cb);
+	});
+	
+	var find = defn(function(table_name, query, cb) {
 		var arr = _toArray(query);
 		
 		if(arr.length < 1) {
@@ -34,15 +38,15 @@ LoopRecur.Db = function(_db, isAndroid) {
 				_execute("SELECT * FROM "+table_name+" WHERE "+real_keys, vals, cb);
 			});
 		}
-	}
+	});
 	
-	function save(table_name, fields) {
+	var save = defn(function(table_name, fields) {
 		_keysVals(fields, function(keys, vals) {
 			var keys = keys.join(", ");
 			var qmarks = map("'?'", vals).join(',');
 			_execute("INSERT OR REPLACE INTO "+table_name+" ("+keys+") VALUES ("+qmarks+")", vals);
 		});
-	}
+	});
 	
 	function destroy(table_name, query) {
 		_keysVals(query, function(keys, vals) {
@@ -87,5 +91,5 @@ LoopRecur.Db = function(_db, isAndroid) {
 		}
 	}
 	
-	return {use : use, create : create, drop : drop, save : save, find : find, destroy : destroy}
+	return {use : use, create : create, drop : drop, save : save, find : find, destroy : destroy, delete_all : delete_all}
 };

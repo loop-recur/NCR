@@ -5,9 +5,7 @@ RestApi = function(name) {
 		
 		var oldSuccess = callbacks.success || callbacks;
 		var oldError = callbacks.error || function(){};
-		
-		// if(options.load_cache) oldSuccess(Repository.get(name));
-				
+						
 		callbacks.error = function(r) {
 			oldSuccess(null);
 			if(r) oldError(r.responseText);
@@ -15,7 +13,6 @@ RestApi = function(name) {
 		
 		callbacks.success = function(r) {
 			var json = JSON.parse(r.responseText);
-			Repository.set(name, json);
 			oldSuccess(json);
 		};
 		

@@ -1,7 +1,8 @@
 Controllers.speakers = (function() {
+	var _name = "speakers";
 	
 	var index = function(view) {
-		compose(view, uniqBy('.id'), map('.speaker'), filter('.speaker'), Repository.get)("sessions");
+		App.db.find(_name, {}, view);
 	};
 		
 	return {index : index}

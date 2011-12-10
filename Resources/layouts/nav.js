@@ -36,9 +36,20 @@ Layouts.nav = function(main_content) {
 		width:228,
 		id: 'speakers'
 	});
-
 	
-	UI.ButtonGroup(maps_button, speakers_button, schedules_button);		
+	var refresh_button = Ti.UI.createButton({
+		title: "refresh",
+		top:23,
+		right: 10,
+		height:20,
+		width:20,
+	});
+	
+	refresh_button.addEventListener('click', DbUpdater.update.p(function() {
+		button_group.activeButton().fireEvent('click', {});
+	}));
+	
+	var button_group =  UI.ButtonGroup(maps_button, speakers_button, schedules_button);		
 	
 	schedules_button.addEventListener('click', App.swapView(main_content, "sessions#index"));
 	speakers_button.addEventListener('click', App.swapView(main_content, "speakers#index"));
@@ -46,6 +57,7 @@ Layouts.nav = function(main_content) {
 	nav_view.add(schedules_button);
 	nav_view.add(maps_button);
 	nav_view.add(speakers_button);
+	nav_view.add(refresh_button);
 	
 	schedules_button.fireEvent('click', {});
 		

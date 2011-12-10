@@ -3,7 +3,7 @@ FileList = [
 	, "helpers/application.js"
 	, "ui/button_group.js"
 	, "helpers/ui.js"
-	, "lib/repository.js"
+	, "lib/db_updater.js"
 	, "lib/formatter.js"
 	, "layouts/application.js"
 	, "layouts/nav.js"

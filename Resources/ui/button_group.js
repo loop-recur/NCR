@@ -26,6 +26,10 @@ UI.ButtonGroup = function() {
 		button.addEventListener('click', toggleButtonState);
 	}
 	
+	var activeButton = function() {
+		return filter(isActive, buttons)[0];
+	}
+	
 	var isActive = function(button) {
 		return button.backgroundImage == registry[button.id].backgroundSelectedImage;
 	}
@@ -34,5 +38,5 @@ UI.ButtonGroup = function() {
 
 	init(buttons);
 	
-	return {isActive : isActive};
+	return {isActive : isActive, activeButton: activeButton};
 }
