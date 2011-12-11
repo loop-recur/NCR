@@ -1,24 +1,24 @@
-Views.speakers.index = function(win, speakers) {	
-	
+Views.speakers.index = function(win, speakers) {		
 	var view = Ti.UI.createView({
 		backgroundColor: "transparent"
 	});
 
-	
 	var createHeaderRow = function(letter) {
-		var name = Titanium.UI.createLabel({
+		var name = Ti.UI.createLabel({
 			text:letter, 
-			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
+			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
 			color:"white",
 			left:10,
-			top:20,
 			height:40,
 			width:"100%"
 		});
 		
 		var row = Ti.UI.createTableViewRow({
-			height:60,
-			backgroundColor: "orange"
+			height:40,
+			opacity:0.75,
+			backgroundGradient:{type:'linear',
+			colors:['#666666','#000001'],
+			backFillStart:false},
 		});
 		
 		row.add(name);
