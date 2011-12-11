@@ -1,11 +1,33 @@
 Views.speakers.index = function(win, speakers) {	
+	
 	var view = Ti.UI.createView({
 		backgroundColor: "transparent"
 	});
+
 	
-	var createTableViewRow = function(x) {				
+	var createHeaderRow = function(letter) {
 		var name = Titanium.UI.createLabel({
-			text:x.name, 
+			text:letter, 
+			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
+			color:"white",
+			left:10,
+			top:20,
+			height:40,
+			width:"100%"
+		});
+		
+		var row = Ti.UI.createTableViewRow({
+			height:60,
+			backgroundColor: "orange"
+		});
+		
+		row.add(name);
+		return row;
+	}
+	
+	var createTableViewRow = function(speaker) {				
+		var name = Titanium.UI.createLabel({
+			text:speaker.name, 
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
 			color:"#444444",
 			left:10,
@@ -15,7 +37,7 @@ Views.speakers.index = function(win, speakers) {
 		});
 			
 		var bio = Titanium.UI.createLabel({
-			text:x.bio, 
+			text:speaker.bio, 
 			font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 			color:"#333333",
 			left:35,
@@ -34,8 +56,14 @@ Views.speakers.index = function(win, speakers) {
 		return row;
 	}
 	
+	var createGroupedRow = function(letter, speakers) {
+		return flatten([createHeaderRow(letter), map(createTableViewRow, speakers)]);
+	}
+	
+	var data = compose(flatten, omap(createGroupedRow))(speakers);
+
 	var tableView = Ti.UI.createTableView({
-		data:map(createTableViewRow, speakers),
+		data:data,
 		backgroundColor:"transparent"
 	});
 	

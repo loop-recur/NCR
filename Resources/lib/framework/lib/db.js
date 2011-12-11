@@ -5,12 +5,23 @@ LoopRecur.Db = function(_db, isAndroid) {
 		db_name = name;
 	}
 	
+	function _getInstance() {
+		return _db.open(db_name);
+	}
+	
 	function _execute(args, replace, cb) {
-		var instance = _db.open(db_name);
-		var rows = replace ? instance.execute(args, replace) : instance.execute(args);
-		if(typeof cb == "function") cb(_makeObjects(rows));
-		if(rows) rows.close();
-		instance.close();
+		var instance = _getInstance();
+		if(instance) {
+			retry = false;
+			var rows = replace ? instance.execute(args, replace) : instance.execute(args);
+			if(typeof cb == "function") cb(_makeObjects(rows));
+			if(rows) rows.close();
+			instance.close();
+		} else {
+			if(retry) return false	;
+			_execute(args, replace, cb);
+			retry = true;
+		}
 	}
 	
 	function create(table_name, fields) {
