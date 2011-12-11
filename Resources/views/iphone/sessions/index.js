@@ -1,22 +1,24 @@
 Views.iphone.sessions.index = function(win, sessions) {	
 	var view = Ti.UI.createView({
-		backgroundColor: "blue"
+		backgroundColor: "transparent"
 	});
 	
 	var createHeaderRow = function(date) {
 		var name = Ti.UI.createLabel({
 			text:date, 
-			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
+			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
 			color:"white",
 			left:10,
-			top:20,
 			height:40,
 			width:"100%"
 		});
 		
 		var row = Ti.UI.createTableViewRow({
-			height:60,
-			backgroundColor: "orange"
+			height:40,
+			opacity:0.75,
+			backgroundGradient:{type:'linear',
+			colors:['#666666','#000001'],
+			backFillStart:false},
 		});
 		
 		row.add(name);
@@ -81,8 +83,21 @@ Views.iphone.sessions.index = function(win, sessions) {
 	
 	var tableView = Ti.UI.createTableView({
 		data:data,
-		backgroundColor:"transparent"
+		backgroundColor:"transparent",
+		top:82,
+		bottom:0
 	});
 	
 	view.add(tableView);
-	win.add(view);}
+	
+	var logo = Ti.UI.createView({
+		backgroundImage:'images/NCR_iPad_headerlogo.png',
+		height:82,
+		top:0,
+		width:220
+	});
+	
+	win.add(logo);
+	
+	win.add(view);
+}
