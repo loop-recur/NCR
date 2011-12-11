@@ -80,7 +80,12 @@ LoopRecur.Db = function(_db, isAndroid) {
 	function _makeObjects(results) {
 		if(!results) return;
 		var objs = [];
-		var count = isAndroid ? results.fieldCount : results.fieldCount();
+		try{
+			var count = isAndroid ? results.fieldCount : results.fieldCount();
+		} catch(e) {
+			return [];
+		}
+		
 		
 		
 		_mapRows(function(){

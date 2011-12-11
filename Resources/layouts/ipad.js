@@ -1,6 +1,6 @@
 Layouts.ipad = function() {
 	
-	var window1 = Ti.UI.createWindow({
+	var main_window = Ti.UI.createWindow({
 		backgroundImage:'images/NCR_iPad2_main_bg.png',
 		top:0,
 		bottom:0,
@@ -20,14 +20,14 @@ Layouts.ipad = function() {
 		height: "48%"
 	});
 	
-	var nav = Layouts.nav(main_content);
+	var nav = Layouts.nav(main_content, main_window);
 
 	var footer = Layouts.footer();
 	
-	window1.add(logo);
-	window1.add(nav);
-	window1.add(main_content);
-	window1.add(footer);
-	window1.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
+	main_window.add(logo);
+	main_window.add(nav);
+	main_window.add(main_content);
+	main_window.add(footer);
+	main_window.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 	
 }
