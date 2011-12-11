@@ -41,7 +41,7 @@ Views.tweets.index = function(win, tweets) {
 		body_bg.add(body);
 		
 		var time = Titanium.UI.createLabel({
-			text:Date.parse(tweet.created_at).toString('dd/mm/yy h:mm tt'), 
+			text:Date.parse(tweet.created_at).toString('M/d/yy h:mm tt'), 
 			font:{fontFamily:'Helvetica',fontSize:"12dp",fontWeight:'regular'},
 			color:"#6c7881",
 			bottom:0,
