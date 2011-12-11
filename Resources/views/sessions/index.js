@@ -6,17 +6,19 @@ Views.sessions.index = function(win, sessions) {
 	var createHeaderRow = function(date) {
 		var name = Ti.UI.createLabel({
 			text:date, 
-			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
+			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
 			color:"white",
 			left:10,
-			top:20,
 			height:40,
 			width:"100%"
 		});
 		
 		var row = Ti.UI.createTableViewRow({
-			height:60,
-			backgroundColor: "orange"
+			height:40,
+			opacity:0.75,
+			backgroundGradient:{type:'linear',
+			colors:['#666666','#000001'],
+			backFillStart:false},
 		});
 		
 		row.add(name);

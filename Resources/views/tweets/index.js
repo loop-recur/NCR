@@ -5,40 +5,57 @@ Views.tweets.index = function(win, tweets) {
 	
 	var createTableViewRow = function(tweet) {
 		
+		var avatar_bg = Titanium.UI.createView({
+			backgroundImage:"images/footer/NCR_iPad_avatar_underlay.png",
+			height:66,
+			width:63,
+			left:0,
+			bottom:30
+		});
+		
 		var avatar = Titanium.UI.createImageView({
 			image: tweet.profile_image_url,
-			left:10,
-			top:20,
-			height:40,
-			width:40
+			height:50,
+			width:50,
+			bottom:11
 		});
-			
+		
+		avatar_bg.add(avatar);
+		
+		var body_bg = Titanium.UI.createView({
+			backgroundImage:"images/footer/NCR_iPad2_feed_quote_box_left.png",
+			height:90,
+			width:360,
+			right:0,
+			bottom:20
+		});
+		
 		var body = Titanium.UI.createLabel({
 			text:tweet.text, 
-			font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
-			color:"#333333",
-			left:35,
-			top:35,
-			height:"auto",
-			width:"auto"
+			font:{fontFamily:'Helvetica',fontSize:"13dp",fontWeight:'regular'},
+			color:"#6c7881",
+			width:300,
+			left:40,
 		});
+		
+		body_bg.add(body);
 		
 		var time = Titanium.UI.createLabel({
 			text:Date.parse(tweet.created_at).toString('dd/mm/yy h:mm tt'), 
-			font:{fontFamily:'GillSans',fontSize:"16dp",fontWeight:'bold'},
-			color:"#444444",
-			right:10,
+			font:{fontFamily:'Helvetica',fontSize:"12dp",fontWeight:'regular'},
+			color:"#6c7881",
 			bottom:0,
+			left:0,
 			height:"auto",
 			width:"auto"
 		});
 			
 		var row = Ti.UI.createTableViewRow({
-			height:80
+			height:110
 		});
 		
-		row.add(avatar);
-		row.add(body);
+		row.add(avatar_bg);
+		row.add(body_bg);
 		row.add(time);
 		
 		return row;
@@ -46,7 +63,11 @@ Views.tweets.index = function(win, tweets) {
 	
 	var tableView = Ti.UI.createTableView({
 		data:map(createTableViewRow, tweets),
-		backgroundColor:"transparent"
+		backgroundColor:"transparent",
+		width:430,
+		left:10, 
+		height:180,
+		top:10
 	});
 	
 	view.add(tableView);
