@@ -47,7 +47,7 @@ Views.yammers.index = function(win, yammers) {
 			text:Date.parse(yammer.created_at).toString('M/d/yy h:mm tt'), 
 			font:{fontFamily:'Helvetica',fontSize:"12dp",fontWeight:'regular'},
 			color:"#6c7881",
-			bottom:0,
+			bottom:10,
 			left:0,
 			height:"auto",
 			width:"auto"
