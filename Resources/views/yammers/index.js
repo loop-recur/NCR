@@ -26,7 +26,7 @@ Views.yammers.index = function(win, yammers) {
 		});
 		
 		var time = Titanium.UI.createLabel({
-			text:Date.parse(yammer.created_at).toString('dd/mm/yy h:mm tt'), 
+			text:Date.parse(yammer.created_at).toString('M/d/yy h:mm tt'), 
 			font:{fontFamily:'GillSans',fontSize:"16dp",fontWeight:'bold'},
 			color:"#444444",
 			right:10,
