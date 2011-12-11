@@ -21,7 +21,7 @@ Bootstrap.run = function() {
 	
 	function shouldInclude(name) {
 		if(!isView(name)) return true;
-		if(name.match(new RegExp('(iphone|ipad|android)')) && name.indexOf(Ti.Platform.osname < 0)) return false;
+		if(name.match(new RegExp('(iphone|ipad|android)')) && name.indexOf(Ti.Platform.osname) < 0) return false;
 		return true;
 	}
 

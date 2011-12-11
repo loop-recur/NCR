@@ -16,7 +16,7 @@ Layouts.iphone = function() {
 			title:"Speakers"
 	});
 	
-	speakers_win.addEventListener('open', App.action.p(sessions_win, "speakers#index"));
+	speakers_win.addEventListener('open', App.action.p(speakers_win, "speakers#index"));
 	
 	speakers_tab = Ti.UI.createTab({
 	    title:'Speakers',
@@ -27,7 +27,7 @@ Layouts.iphone = function() {
 			title:"Event Maps"
 	});
 	
-	maps_win.addEventListener('open', App.action.p(sessions_win, "maps#index"));
+	maps_win.addEventListener('open', App.action.p(maps_win, "maps#index"));
 	
 	maps_tab = Ti.UI.createTab({
 	    title:'Event Maps',
@@ -38,7 +38,7 @@ Layouts.iphone = function() {
 			title:"news"
 	});
 	
-	news_win.addEventListener('open', App.action.p(sessions_win, "tweets#index"));
+	news_win.addEventListener('open', App.action.p(news_win, "tweets#index"));
 	
 	news_tab = Ti.UI.createTab({
 	    title:'News',

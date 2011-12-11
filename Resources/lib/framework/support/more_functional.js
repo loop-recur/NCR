@@ -36,7 +36,7 @@ repeat = defn(function(arg, n) {
 	return nTimes(n, id.curry(arg));
 });
 
-index = defn(function(i, xs) {
+idx = defn(function(i, xs) {
 	return xs[i];
 });
 
@@ -52,10 +52,10 @@ random = function(i) {
 	return Math.floor(Math.random()*i);
 }
 
-groups_of = function(n, xs) {
+groups_of = defn(function(n, xs) {
 	if(xs.length === 0) return [];
 	return cons(take(n, xs), groups_of(n, drop(n,xs)));
-}
+});
 
 strip = function(str) {
 	return str.replace(/\s+/, "");
@@ -142,11 +142,11 @@ set = function(attribute, fun) {
 	
 };
 
-omap = function(fun, obj) {
+omap = defn(function(fun, obj) {
 	var results = [];
 	for(i in obj) { results = cons(fun(i, obj[i]), results); }
 	return results;
-}
+});
 
 keys = function(obj) {
 	return omap(function(key, value){return key}, obj);
@@ -159,7 +159,7 @@ merge = function(x,y) {
 	return x;
 }
 
-sortBy = function(fun, xs) {
+sortBy = defn(function(fun, xs) {
 	// altered from prototype
 	var _sortBy = function(iterator, xs, context) {
 	  return map('.value', map(function(value, index) {
@@ -174,9 +174,20 @@ sortBy = function(fun, xs) {
 	}
 	var f = fun.toFunction();
 	return _sortBy(f, xs);
-}
+});
 
-function argsToList(x){
+groupBy = defn(function(fun, xs) {
+	var _makeHash = function(obj, x) {
+		var val = fun(x);
+		if(!obj[val]) obj[val] = [];
+		obj[val].push(x);
+		return obj;
+	}
+	
+	return reduce(_makeHash, {}, xs);
+});
+
+argsToList = function(x){
 	return Array.prototype.slice.call(x);
 }
 

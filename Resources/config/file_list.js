@@ -15,6 +15,7 @@ FileList = [
 	, "controllers/tweets.js"
 	, "controllers/yammers.js"
 	, "views/iphone/sessions/index.js"
+	, "views/iphone/speakers/index.js"
 	, "views/sessions/index.js"
 	, "views/speakers/index.js"
 	, "views/tweets/index.js"

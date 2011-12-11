@@ -56,7 +56,7 @@ Layouts.nav = function(main_content) {
 	var activity = Helpers.ui.spinner();
 	activity.show();
 	
-	var button_group =  UI.ButtonGroup(maps_button, speakers_button, schedules_button);		
+	var button_group = UI.ButtonGroup(maps_button, speakers_button, schedules_button);		
 	
 	schedules_button.addEventListener('click', App.swapView(main_content, "sessions#index"));
 	speakers_button.addEventListener('click', App.swapView(main_content, "speakers#index"));

@@ -19,8 +19,8 @@ LoopRecur.Db = function(_db, isAndroid) {
 		_execute('CREATE TABLE IF NOT EXISTS '+table_name+' ('+sql_fields+')');
 	}
 	
-	function drop(table_name, fields) {
-		_execute('DROP TABLE '+table_name);
+	function drop(table_name) {
+		_execute('DROP TABLE IF EXISTS '+table_name);
 	}
 	
 	var delete_all = defn(function(table_name, cb) {
