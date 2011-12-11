@@ -15,7 +15,6 @@ Layouts.ipad = function() {
 		width:400
 	});
 
-	
 	var main_content = Ti.UI.createView({
 		top: 311,
 		height: "48%"
@@ -30,6 +29,5 @@ Layouts.ipad = function() {
 	window1.add(main_content);
 	window1.add(footer);
 	window1.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
-		
 	
 }

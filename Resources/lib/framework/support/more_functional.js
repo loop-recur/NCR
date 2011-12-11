@@ -177,8 +177,9 @@ sortBy = defn(function(fun, xs) {
 });
 
 groupBy = defn(function(fun, xs) {
+	var f = fun.toFunction();
 	var _makeHash = function(obj, x) {
-		var val = fun(x);
+		var val = f(x);
 		if(!obj[val]) obj[val] = [];
 		obj[val].push(x);
 		return obj;

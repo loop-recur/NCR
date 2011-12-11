@@ -60,6 +60,7 @@ Layouts.nav = function(main_content) {
 	
 	schedules_button.addEventListener('click', App.swapView(main_content, "sessions#index"));
 	speakers_button.addEventListener('click', App.swapView(main_content, "speakers#index"));
+	maps_button.addEventListener('click', App.swapView(main_content, "maps#index"));
 
 	refresh_view.add(activity);
 	refresh_view.add(refresh_button);

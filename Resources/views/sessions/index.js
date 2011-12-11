@@ -3,6 +3,26 @@ Views.sessions.index = function(win, sessions) {
 		backgroundColor: "transparent"
 	});
 	
+	var createHeaderRow = function(date) {
+		var name = Ti.UI.createLabel({
+			text:date, 
+			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
+			color:"white",
+			left:10,
+			top:20,
+			height:40,
+			width:"100%"
+		});
+		
+		var row = Ti.UI.createTableViewRow({
+			height:60,
+			backgroundColor: "orange"
+		});
+		
+		row.add(name);
+		return row;
+	}
+	
 	var createTableViewRow = function(x) {
 		var start = Date.parse(x.start_time);
 		var end = Date.parse(x.end_time);
@@ -12,7 +32,7 @@ Views.sessions.index = function(win, sessions) {
 		var description = x.description;
 		var time = Formatter.timeSpan([start, end]);
 		
-		var title = Titanium.UI.createLabel({
+		var title = Ti.UI.createLabel({
 			text:title, 
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
 			color:"#444444",
@@ -22,7 +42,7 @@ Views.sessions.index = function(win, sessions) {
 			width:"auto"
 		});
 			
-		var description = Titanium.UI.createLabel({
+		var description = Ti.UI.createLabel({
 			text:description, 
 			font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 			color:"#333333",
@@ -32,7 +52,7 @@ Views.sessions.index = function(win, sessions) {
 			width:"auto"
 		});
 		
-		var time = Titanium.UI.createLabel({
+		var time = Ti.UI.createLabel({
 			text:time, 
 			font:{fontFamily:'GillSans',fontSize:"16dp",fontWeight:'bold'},
 			color:"#444444",
@@ -53,8 +73,14 @@ Views.sessions.index = function(win, sessions) {
 		return row;
 	}
 	
+	var createGroupedRow = function(date, sessions) {
+		return flatten([createHeaderRow(date), map(createTableViewRow, sessions)]);
+	}
+	
+	var data = compose(flatten, omap(createGroupedRow))(sessions);
+	
 	var tableView = Ti.UI.createTableView({
-		data:map(createTableViewRow, sessions),
+		data:data,
 		backgroundColor:"transparent"
 	});
 	
