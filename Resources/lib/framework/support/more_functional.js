@@ -1,12 +1,4 @@
-when = function(arg,f){
-	var bool = (typeof arg == "boolean") ? arg : arg();
-	
-	return function() {
-		if(bool) f.apply(this, arguments);
-	}
-}
-
-take = function(n, xs) {
+take = defn(function(n, xs) {
 	var result = [];
 	
 	for(var i=0;i<xs.length;i++ ) {
@@ -14,26 +6,22 @@ take = function(n, xs) {
 		if(result.length>=n) break;
 	};
 	return result;
-}
+});
 
-drop = function(n, xs) {
+drop = defn(function(n, xs) {
 	xs.splice(0, n);
 	return xs;
-}
+});
 
-nTimes = function(times, fun) {
+nTimes = defn(function(times, fun) {
 	var result = [];
 	for(var i=0;i<times;i++ ){ result = cons(fun(), result); }
 	return result;
-}
+});
 
 log = function(s) {
 	Ti.API.info(s);
 	return s;
-}
-
-apply = function(f, args) {
-	return f.apply(f, args);
 }
 
 unshift = defn(function(xs, other) {
@@ -44,16 +32,20 @@ cons = defn(function(xs, other) {
 	return [xs].concat(other);
 });
 
-repeat = function(arg, n) {	
+repeat = defn(function(arg, n) {	
 	return nTimes(n, id.curry(arg));
-}
+});
 
-index = function(i, xs) {
+index = defn(function(i, xs) {
 	return xs[i];
-};
+});
 
 first = function(xs) {
 	return xs[0];
+};
+
+last = function(xs) {
+	return xs[xs.length -1];
 };
 
 random = function(i) {
@@ -121,6 +113,11 @@ uniqBy = defn(function(fun, xs) {
 	return result;
 })
 
+when = defn(function(pred, f) {
+	return function() {
+		if(pred.apply(this, arguments)) return f.apply(this, arguments);
+	}
+});
 
 ifelse = defn(function(pred, f, g) {
 	return function() {
@@ -145,6 +142,23 @@ set = function(attribute, fun) {
 	
 };
 
+omap = function(fun, obj) {
+	var results = [];
+	for(i in obj) { results = cons(fun(i, obj[i]), results); }
+	return results;
+}
+
+keys = function(obj) {
+	return omap(function(key, value){return key}, obj);
+}
+
+merge = function(x,y) {
+	for(property in y) {
+		if(y[property]) x[property] = y[property];
+	}
+	return x;
+}
+
 sortBy = function(fun, xs) {
 	// altered from prototype
 	var _sortBy = function(iterator, xs, context) {
@@ -164,4 +178,19 @@ sortBy = function(fun, xs) {
 
 function argsToList(x){
 	return Array.prototype.slice.call(x);
+}
+
+flatten = reduce(function(a,b){return a.concat(b);}, []);
+
+capitalize = function(xs) {
+	return xs[0].toUpperCase() + xs.slice(1, xs.length);
+}
+
+fireEvent = function(name, args) {
+	if(!args) args = {};
+	Ti.App.fireEvent(name, args);
+};
+
+empty = function(xs) {
+	return xs.length < 1;
 }

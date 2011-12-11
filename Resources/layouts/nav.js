@@ -37,29 +37,49 @@ Layouts.nav = function(main_content) {
 		id: 'speakers'
 	});
 	
-	var refresh_button = Ti.UI.createButton({
-		title: "refresh",
-		top:23,
+	var refresh_view = Ti.UI.createView({
+		top:30,
 		right: 10,
-		height:20,
-		width:20,
+		height:60,
+		width:60,
+		backgroundColor: 'black'
 	});
 	
-	refresh_button.addEventListener('click', DbUpdater.update.p(function() {
-		button_group.activeButton().fireEvent('click', {});
-	}));
+	var refresh_button = Ti.UI.createButton({
+		title: "refresh",
+		height:60,
+		width:60
+	});
+	
+	refresh_button.addEventListener('click', DbUpdater.update);
+	
+	var activity = Helpers.ui.spinner();
+	activity.show();
 	
 	var button_group =  UI.ButtonGroup(maps_button, speakers_button, schedules_button);		
 	
 	schedules_button.addEventListener('click', App.swapView(main_content, "sessions#index"));
 	speakers_button.addEventListener('click', App.swapView(main_content, "speakers#index"));
 
+	refresh_view.add(activity);
+	refresh_view.add(refresh_button);
+	
 	nav_view.add(schedules_button);
 	nav_view.add(maps_button);
 	nav_view.add(speakers_button);
-	nav_view.add(refresh_button);
+	nav_view.add(refresh_view);
+	
 	
 	schedules_button.fireEvent('click', {});
+	
+	Ti.App.addEventListener("apiUpdateStart", function(e) {
+		refresh_button.visible = false;
+	});
+	
+	Ti.App.addEventListener("apiUpdateFinish", function(e) {
+		refresh_button.visible = true;
+		button_group.activeButton().fireEvent('click', e);
+	});
 		
 	return nav_view;
 }

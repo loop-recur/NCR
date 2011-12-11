@@ -1,23 +1,30 @@
 // this sets the background color of the master UIView (when there are no windows/tab groups on it)
-Titanium.include('initializers/init.js');
-try { App.run(); } catch(E) { alert("Failed with "+E); }
+Ti.include('initializers/init.js');
+App.run();
+
 require('support/date');
 require('support/twitterlib');
+require('support/yammer');
 
-isAndroid = Helpers.Application.isAndroid();
+Yammer.config({
+	oauth_consumer_key: "lvms8bxKTfLEIqnLHe3p0A",
+	consumer_secret: "LfpNjLCCMFVtknjUwIoWGP8KNyocGO01zGll8800",
+	access_token: "06nSMwqshlY70uIpjGQ",
+	access_token_secret: "2NTqBLB456k9oWoYy7Rfn9RuGIidRYl7o8UdU0oar4"
+});
+
+isAndroid = Ti.Platform.osname == 'android';
+isIPad = Ti.Platform.osname == 'ipad';
 
 // App.setHost("http://ncr.herokuapp.com/api");
 App.setHost("http://localhost:3000/api");
+App.db = LoopRecur.Db(Ti.Database, isAndroid);
+App.db.use("ncr");
 
-setupDb(true); // leave true for dev only.
-DbUpdater.update(Layouts.application);
+SchemaLoad.createDb({redo : true}); // leave true for dev only.  True simulates first load.
 
-function setupDb(redo) {
-	App.db = LoopRecur.Db(Titanium.Database, isAndroid);
-	App.db.use("ncr");
-	
-	if(redo) map(App.db.drop, ['sessions', 'speakers']);
-	
-	App.db.create("sessions", {title:"string", description:"text", start_time:"datetime", end_time:"datetime", speaker_id: "integer", created_at:"datetime", updated_at:"datetime" });
-	App.db.create("speakers", {name:"string", company: "string", bio:"text", created_at:"datetime", updated_at:"datetime"});
-}
+Layouts[Ti.Platform.osname]();
+
+App.db.find("sessions", {}, when(empty, DbUpdater.loadCannedData));
+
+DbUpdater.update();

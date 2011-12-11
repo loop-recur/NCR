@@ -1,9 +1,5 @@
 Helpers.Application = {};
 
-Helpers.Application.isAndroid = function() {
-	return Ti.Platform.osname == 'android';
-}
-
 Helpers.Application.addDp = function() {
 	var _sum = reduce.p('+', 0);
 	var _getInts = map.p(Helpers.Application.extractInteger);

@@ -39,10 +39,9 @@ Layouts.footer = function() {
 		top:29,
 		right: "5%",
 		height:36,
-		width:145
+		width:145,
+		id: 'twitter1'
 	});
-	
-	twitter1_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter1_filter'}));
 
 	var twitter2_filter = Ti.UI.createButton({
 		backgroundImage:"images/footer/NCR_iPad_breakthrough_tag_btn_inactive.png",
@@ -50,10 +49,9 @@ Layouts.footer = function() {
 		top:73,
 		right: "5%",
 		height:36,
-		width:145
+		width:145,
+		id: 'twitter2'
 	});
-	
-	twitter2_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter2_filter'}));
 
 	var yammer_filter = Ti.UI.createButton({
 		backgroundImage:"images/footer/NCR_iPad_yammer_tag_btn_inactive.png",
@@ -61,8 +59,15 @@ Layouts.footer = function() {
 		top:116,
 		right: "5%",
 		height:36,
-		width:145
+		width:145,
+		id: 'yammer'
 	});
+	
+	UI.ButtonGroup(twitter1_filter, twitter2_filter, yammer_filter);
+	
+	twitter1_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter1_filter'}));
+	twitter2_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter2_filter'}));
+	yammer_filter.addEventListener('click', App.swapView(news_area, "yammers#index"));
 	
 	footer_container.add(news_bar);
 	news_bar.add(news_feed);
@@ -73,6 +78,8 @@ Layouts.footer = function() {
 
 	footer_container.add(button_area);
 	footer_container.add(news_area);
+	
+	twitter1_filter.fireEvent('click', {});
 	
 	return footer_container;
 }

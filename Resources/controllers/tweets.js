@@ -1,7 +1,7 @@
 Controllers.tweets = (function() {
 	
 	var index = function(view, params) {
-		var fun = (params.name == "twitter1_filter") ? Twitter.search('codestrong') : Twitter.timeline('codestrong');
+		var fun = (params.name == "twitter1_filter") ? Twitter.search('movies') : Twitter.timeline('codestrong');
 		fun(view);
 	};
 		

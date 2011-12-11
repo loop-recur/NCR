@@ -1,4 +1,4 @@
-Layouts.application = function() {
+Layouts.ipad = function() {
 	
 	var window1 = Ti.UI.createWindow({
 		backgroundImage:'images/NCR_iPad2_main_bg.png',

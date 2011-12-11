@@ -40,8 +40,5 @@ Helpers.ui.spinner = function(props) {
 		width:"26dp",
 	}, props));
 	
-	Ti.App.addEventListener('show_activity_indicator', function() { activity.show(); });
-	Ti.App.addEventListener('hide_activity_indicator', function() { activity.hide(); });
-	
 	return activity;
 };
