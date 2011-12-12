@@ -1,6 +1,8 @@
 Controllers.maps = (function() {
 		
-	var index = id;
+	var index = function(view){
+		view();
+	}
 	
 	return {index : index}
 })();
