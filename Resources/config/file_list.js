@@ -16,9 +16,12 @@ FileList = [
 	, "controllers/speakers.js"
 	, "controllers/news.js"
 	, "views/iphone/sessions/index.js"
+	, "views/iphone/sessions/table.js"
 	, "views/iphone/news/index.js"
 	, "views/maps/index.js"
 	, "views/sessions/index.js"
+	, "views/sessions/show.js"
 	, "views/speakers/index.js"
+	, "views/speakers/show.js"
 	, "views/news/index.js"
 ]

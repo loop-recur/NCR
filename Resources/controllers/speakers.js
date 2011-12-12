@@ -2,11 +2,13 @@ Controllers.speakers = (function() {
 	var _name = "speakers";
 	
 	var index = function(view) {
-		var _lastName = compose(idx(1), split(" "), '.name');
-		var _firstLetter = compose('.toUpperCase()', idx(0));
-
-		App.db.find(_name, {}, compose(view, groupBy(compose(_firstLetter, _lastName))));
+		var _lastName = compose(last, split(" "), '.name');
+		App.db.find(_name, {}, compose(view, groupBy(compose(first, Formatter.titleize, _lastName))));
 	};
 	
-	return {index : index}
+	var show = function(view, params) {
+		App.db.find(_name, {id: params.id}, compose(view, first));
+	}
+	
+	return {index : index, show : show}
 })();

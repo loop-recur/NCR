@@ -26,6 +26,16 @@ App.swapView = function(view, action, params) {
 	}
 }
 
+App.animateToView = function(tab) {
+	_getTitle = compose(Formatter.titleize, first, split("#"));
+	
+	return function(e) {
+		var win = Ti.UI.createWindow({title:(e.title || _getTitle(e.action)), navBarHidden:false});
+		App.action(win, e.action, e.params);
+		tab.open(win,{animated:true});
+	}
+}
+
 App.setHost = function(url, credentials) {
 	App.base_url = url;
 	if(credentials) App.http_client.credentials = ('Basic ' + Titanium.Utils.base64encode(credentials));

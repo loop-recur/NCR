@@ -51,5 +51,10 @@ Layouts.iphone = function() {
 	
 	map(function(t){ tabGroup.addTab(t) }, [sessions_tab, speakers_tab, maps_tab, news_tab]);	
 	
+	map(function(o) {
+		o.win.addEventListener('animateToView', App.animateToView(o.tab));
+	}, [{win : sessions_win, tab: sessions_tab}, {win: speakers_win, tab: speakers_tab}]);
+	
+	
 	tabGroup.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
 }
