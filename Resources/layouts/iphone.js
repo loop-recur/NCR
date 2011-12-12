@@ -30,7 +30,7 @@ Layouts.iphone = function() {
 			navBarHidden:true
 	});
 	
-	maps_win.addEventListener('open', App.action.p(maps_win, "maps#index"));
+	maps_win.addEventListener('open', Views.maps.index.p(maps_win));
 	
 	maps_tab = Ti.UI.createTab({
 	    title:'Event Maps',
@@ -42,7 +42,7 @@ Layouts.iphone = function() {
 			navBarHidden:true
 	});
 	
-	news_win.addEventListener('open', App.action.p(news_win, "tweets#index"));
+	news_win.addEventListener('open', Views.iphone.news.p(news_win));
 	
 	news_tab = Ti.UI.createTab({
 	    title:'News',
