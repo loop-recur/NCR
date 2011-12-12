@@ -32,7 +32,8 @@ Views.maps.index = function(win) {
 	var backButton = Ti.UI.createButton({
 		title: "Back",
 		width: 50,
-		height: 30
+		height: 30,
+		left: 0
 	});
 	
 	backButton.addEventListener('click', function(e) {
