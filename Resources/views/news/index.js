@@ -51,7 +51,8 @@ Views.news.index = function(win, posts) {
 		});
 			
 		var row = Ti.UI.createTableViewRow({
-			height:110
+			height:110,
+			className:'news'
 		});
 		
 		row.add(avatar_bg);

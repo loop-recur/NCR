@@ -9,12 +9,10 @@ UI.SubTabs = function(win, tab_names, options) {
 		backgroundColor: "black"
 	});
 	
-	var scrollview = Titanium.UI.createScrollView({
+	var scrollview = Titanium.UI.createView({
 		top: 36,
-		contentWidth:"auto",
-		contentHeight:'auto',
-		showHorizontalScrollIndicator:false,
-		showVerticalScrollIndicator:true
+		width:"100%",
+		height:'100%'
 	});
 	
 	var tabbedBarView = Ti.UI.createView({

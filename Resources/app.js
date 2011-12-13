@@ -18,8 +18,8 @@ isAndroid = Ti.Platform.osname == 'android';
 isIPad = Ti.Platform.osname == 'ipad';
 isIPhone = Ti.Platform.osname == 'iphone';
 
-// App.setHost("http://ncr.herokuapp.com/api");
-App.setHost("http://localhost:3000/api");
+App.setHost("http://ncr.herokuapp.com/api");
+// App.setHost("http://localhost:3000/api");
 
 App.db = LoopRecur.Db(Ti.Database, isAndroid);
 App.db.use("ncr");

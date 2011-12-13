@@ -63,7 +63,7 @@
       this.options = {
         method: "GET",
         baseUrl: "",
-        timeout: 11000,
+        timeout: 21000,
         retryCount: 0,
         cacheSeconds: 30,
         pruneSeconds: 2520000,
@@ -211,9 +211,13 @@
       seconds != null ? seconds : seconds = this.options.cacheSeconds;
       row = db.execute("SELECT RESPONSE, UPDATED_AT FROM REQUESTS WHERE URL_HASH=? AND UPDATED_AT > DATETIME('now','-" + seconds + " seconds')", this.url_hash);
 			try{ 
-      	responseText = row.field(0);
-      	cachedAt = row.field(1);
+				if(row.isValidRow()) {
+					responseText = row.field(0);
+	      	cachedAt = row.field(1);
+				}
+
 			} catch(e) {
+				log(e);
 			}
       row.close();
       db.close();

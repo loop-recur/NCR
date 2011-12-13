@@ -15,7 +15,7 @@ App.action = defn(function(win, controller_action, args) {
 });
 
 App.removeChildren = function(view, children) {
-	if(children) map(function(c){ view.remove(c); }, children);
+	if(children) map(function(c){ view.remove(c); c = null; children = null; }, children);
 }
 
 App.swapView = function(view, action, params) {	
