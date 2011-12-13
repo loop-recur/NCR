@@ -71,7 +71,8 @@ Views.sessions.table = function(win, sessions) {
 		
 		var row = Ti.UI.createTableViewRow({
 			height:80,
-			id: session.id
+			id: session.id,
+			className:'session'
 		});
 	
 		row.add(title);
@@ -102,7 +103,7 @@ Views.sessions.table = function(win, sessions) {
 		if(!e.source.id) return;
 		win.fireEvent('animateToView', {action: "sessions#show", params: {id : e.source.id}});
 	});
-		
+
 	Ti.App.addEventListener("apiUpdateFinish", Controllers.sessions.index.p(refreshTable));
 
 	view.add(tableView);

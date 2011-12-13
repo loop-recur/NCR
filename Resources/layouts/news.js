@@ -4,7 +4,16 @@ Layouts.news = function(win) {
 	var subtabs = UI.SubTabs(win, keys(mappings), {skip_back : true});
 	
 	subtabs.delegate = {
-		getContent : function(scrollview, e) {
+		getContent : function(view, e) {
+			var scrollview = Ti.UI.createScrollView({
+				contentWidth:"auto",
+				contentHeight:'auto',
+				showHorizontalScrollIndicator:false,
+				showVerticalScrollIndicator:true
+			});
+			
+			view.add(scrollview);
+			
 			App.action(scrollview, "news#index", {name : mappings[e.source.id]});
 		}
 	}
