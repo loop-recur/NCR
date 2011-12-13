@@ -54,5 +54,5 @@ Config['Sessions'] = [
     updated_at : "2011-12-09T19:00:58Z",
 }
 
-],
+]
 

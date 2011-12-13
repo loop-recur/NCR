@@ -6,7 +6,7 @@ Controllers.sessions = (function() {
 		, query = {};
 		
 		if(params.speaker_id) query = {speaker_id : params.speaker_id};
-		App.db.find(_name, query, compose(view.p(params), groupBy(compose('.toString("M/d/yy")', '.date')), reverse, sortBy('.date'), map(_setDate)));
+		App.db.find(_name, query, compose(view.p(params), groupBy(compose('.toString("dddd")', '.date')), reverse, sortBy('.date'), map(_setDate)));
 	}
 	
 	var show = function(view, params) {

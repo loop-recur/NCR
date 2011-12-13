@@ -1,4 +1,4 @@
-Layouts.nav = function(main_content, main_window) {
+Layouts.ipad.nav = function(main_content, main_window) {
 	
 	var nav_view = Ti.UI.createView({
 		backgroundImage:"images/nav/NCR_iPad2_button_row_bg.png",

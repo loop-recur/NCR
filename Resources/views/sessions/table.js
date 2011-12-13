@@ -1,4 +1,4 @@
-Views.iphone.sessions.table = function(win, sessions) {		
+Views.sessions.table = function(win, sessions) {		
 	var view = Ti.UI.createView({
 		backgroundColor: "transparent"
 	});
@@ -16,9 +16,11 @@ Views.iphone.sessions.table = function(win, sessions) {
 		var row = Ti.UI.createTableViewRow({
 			height:40,
 			opacity:0.75,
-			backgroundGradient:{type:'linear',
-			colors:['#666666','#000001'],
-			backFillStart:false},
+			backgroundGradient:{
+				type:'linear',
+				colors:['#666666','#000001'],
+				backFillStart:false
+			}
 		});
 	
 		row.add(name);

@@ -1,4 +1,4 @@
-Layouts.iphone = function() {
+Layouts.application = function() {
 	var tabGroup = Ti.UI.createTabGroup();
 	
 	var sessions_win = Ti.UI.createWindow({
@@ -42,7 +42,7 @@ Layouts.iphone = function() {
 			navBarHidden:true
 	});
 	
-	news_win.addEventListener('open', Views.iphone.news.p(news_win));
+	news_win.addEventListener('open', Layouts.news.p(news_win));
 	
 	news_tab = Ti.UI.createTab({
 	    title:'News',

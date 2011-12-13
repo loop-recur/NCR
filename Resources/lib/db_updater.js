@@ -2,9 +2,9 @@ DbUpdater = (function() {
 	
 var tables = keys(Schema);
 
-var _start = fireEvent.curry('apiUpdateStart');
+var _start = fireEvent.p('apiUpdateStart', {});
 
-var _finish = fireEvent.curry('apiUpdateFinish');
+var _finish = fireEvent.p('apiUpdateFinish', {});
 
 var _saveToDb = defn(function(table, json) {
 	map(App.db.save(table), json);

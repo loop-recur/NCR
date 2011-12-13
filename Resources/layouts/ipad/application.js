@@ -1,4 +1,4 @@
-Layouts.ipad = function() {
+Layouts.ipad.application = function() {
 	
 	var main_window = Ti.UI.createWindow({
 		backgroundImage:'images/NCR_iPad2_main_bg.png',
@@ -20,9 +20,9 @@ Layouts.ipad = function() {
 		height: "48%"
 	});
 	
-	var nav = Layouts.nav(main_content, main_window);
+	var nav = Layouts.ipad.nav(main_content, main_window);
 
-	var footer = Layouts.footer();
+	var footer = Layouts.ipad.footer();
 	
 	main_window.add(logo);
 	main_window.add(nav);

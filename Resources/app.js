@@ -2,7 +2,8 @@
 Ti.include('initializers/init.js');
 App.run();
 
-require('support/date');
+// require('support/date');
+Ti.include('/support/date.js');
 require('support/twitterlib');
 require('support/yammer');
 
@@ -25,7 +26,7 @@ App.db.use("ncr");
 
 SchemaLoad.createDb({redo : true}); // leave true for dev only.  True simulates first load.
 
-Layouts[Ti.Platform.osname]();
+Layouts[Ti.Platform.osname].application ? Layouts[Ti.Platform.osname].application() : Layouts.application();
 
 App.db.find("sessions", {}, when(empty, DbUpdater.loadCannedData));
 

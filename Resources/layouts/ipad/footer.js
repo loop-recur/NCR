@@ -1,4 +1,4 @@
-Layouts.footer = function() {
+Layouts.ipad.footer = function() {
 	
 	var footer_container = Ti.UI.createView({
 		height:220,

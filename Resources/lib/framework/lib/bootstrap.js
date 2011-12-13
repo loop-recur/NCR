@@ -6,6 +6,7 @@ Bootstrap.run = function() {
 	
 	function includeAllFiles() {
 		Views[Ti.Platform.osname] = {};
+		Layouts[Ti.Platform.osname] = {};
 		map(includeFile, FileList);
 	}
 
@@ -16,7 +17,7 @@ Bootstrap.run = function() {
 	}
 	
 	function isView(name) {
-		return name.indexOf("views") >= 0;
+		return name.match(/views|layouts/i);
 	};
 	
 	function shouldInclude(name) {
