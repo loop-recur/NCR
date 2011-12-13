@@ -82,9 +82,9 @@ Layouts.footer = function() {
 	
 	UI.ButtonGroup(twitter1_filter, twitter2_filter, yammer_filter);
 	
-	twitter1_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter1_filter'}));
-	twitter2_filter.addEventListener('click', App.swapView(news_area, "tweets#index", {name : 'twitter2_filter'}));
-	yammer_filter.addEventListener('click', App.swapView(news_area, "yammers#index"));
+	twitter1_filter.addEventListener('click', App.swapView(news_area, "news#index", {name : 'twitter1_filter'}));
+	twitter2_filter.addEventListener('click', App.swapView(news_area, "news#index", {name : 'twitter2_filter'}));
+	yammer_filter.addEventListener('click', App.swapView(news_area, "news#index", {name : 'yammer_filter'}));
 	
 	footer_container.add(news_bar);
 	news_bar.add(news_feed_label);

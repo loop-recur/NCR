@@ -1,9 +1,9 @@
-Views.tweets.index = function(win, tweets) {
+Views.news.index = function(win, posts) {	
 	var view = Ti.UI.createView({
 		backgroundColor: "transparent"
 	});
 	
-	var createTableViewRow = function(tweet) {
+	var createTableViewRow = function(post) {
 		
 		var avatar_bg = Titanium.UI.createView({
 			backgroundImage:"images/footer/NCR_iPad_avatar_underlay.png",
@@ -14,7 +14,7 @@ Views.tweets.index = function(win, tweets) {
 		});
 		
 		var avatar = Titanium.UI.createImageView({
-			image: tweet.profile_image_url,
+			image: post.profile_image_url,
 			height:50,
 			width:50,
 			bottom:11
@@ -31,7 +31,7 @@ Views.tweets.index = function(win, tweets) {
 		});
 		
 		var body = Titanium.UI.createLabel({
-			text:tweet.text, 
+			text:post.text, 
 			font:{fontFamily:'Helvetica',fontSize:"13dp",fontWeight:'regular'},
 			color:"#6c7881",
 			width:300,
@@ -41,7 +41,7 @@ Views.tweets.index = function(win, tweets) {
 		body_bg.add(body);
 		
 		var time = Titanium.UI.createLabel({
-			text:Date.parse(tweet.created_at).toString('M/d/yy h:mm tt'), 
+			text:Date.parse(post.created_at).toString('M/d/yy h:mm tt'), 
 			font:{fontFamily:'Helvetica',fontSize:"12dp",fontWeight:'regular'},
 			color:"#6c7881",
 			bottom:10,
@@ -62,7 +62,7 @@ Views.tweets.index = function(win, tweets) {
 	}
 	
 	var tableView = Ti.UI.createTableView({
-		data:map(createTableViewRow, tweets),
+		data:map(createTableViewRow, posts),
 		backgroundColor:"transparent",
 		width:430,
 		left:10, 

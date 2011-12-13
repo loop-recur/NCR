@@ -15,6 +15,7 @@ Yammer.config({
 
 isAndroid = Ti.Platform.osname == 'android';
 isIPad = Ti.Platform.osname == 'ipad';
+isIPhone = Ti.Platform.osname == 'iphone';
 
 // App.setHost("http://ncr.herokuapp.com/api");
 App.setHost("http://localhost:3000/api");

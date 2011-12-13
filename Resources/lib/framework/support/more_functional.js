@@ -44,6 +44,10 @@ first = function(xs) {
 	return xs[0];
 };
 
+rest = function(xs) {
+	return (typeof xs == "string") ? xs.substr(1, xs.length) : xs.splice(1, xs.length);
+};
+
 last = function(xs) {
 	return xs[xs.length -1];
 };
@@ -206,3 +210,7 @@ fireEvent = function(name, args) {
 empty = function(xs) {
 	return xs.length < 1;
 }
+
+headTail = defn(function(fun, xs) {
+	return fun.apply(fun, [first(xs), rest(xs)]);
+});
