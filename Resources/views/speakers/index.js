@@ -9,12 +9,12 @@ Views.speakers.index = function(win, speakers) {
 			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
 			color:"white",
 			left:10,
-			height:40,
+			height:28,
 			width:"100%"
 		});
 		
 		var row = Ti.UI.createTableViewRow({
-			height:40,
+			height:30,
 			opacity:0.75,
 			backgroundGradient:{
 				type:'linear',
@@ -33,30 +33,17 @@ Views.speakers.index = function(win, speakers) {
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
 			color:"#444444",
 			left:10,
-			top:20,
-			height:"auto",
-			width:"auto",
-			id: speaker.id
-		});
-			
-		var bio = Ti.UI.createLabel({
-			text:speaker.bio, 
-			font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
-			color:"#333333",
-			left:35,
-			top:35,
 			height:"auto",
 			width:"auto",
 			id: speaker.id
 		});
 			
 		var row = Ti.UI.createTableViewRow({
-			height:80,
+			height:50,
 			id: speaker.id
 		});
 		
 		row.add(name);
-		row.add(bio);
 		
 		return row;
 	}
@@ -68,8 +55,7 @@ Views.speakers.index = function(win, speakers) {
 	var createData = compose(flatten, omap(createGroupedRow));
 	
 	var tableView = Ti.UI.createTableView({
-		data:createData(speakers),
-		backgroundColor:"transparent"
+		data:createData(speakers)
 	});
 	
 	var refreshTable = function(speakers) {
