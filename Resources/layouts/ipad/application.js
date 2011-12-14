@@ -5,7 +5,8 @@ Layouts.ipad.application = function() {
 		top:0,
 		bottom:0,
 		left:0,
-		right:0
+		right:0,
+		orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 	});
 
 	var logo = Ti.UI.createView({
