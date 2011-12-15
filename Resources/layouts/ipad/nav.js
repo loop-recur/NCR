@@ -54,13 +54,8 @@ Layouts.ipad.nav = function(main_content, main_window) {
 	nav_view.add(speakers_button);
 	
 	schedules_button.fireEvent('click', {});
-	
-	Ti.App.addEventListener("apiUpdateStart", function(e) {
-		refresh_button.visible = false;
-	});
-	
+		
 	Ti.App.addEventListener("apiUpdateFinish", function(e) {
-		refresh_button.visible = true;
 		button_group.activeButton().fireEvent('click', e);
 	});
 		
