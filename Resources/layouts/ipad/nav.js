@@ -46,8 +46,6 @@ Layouts.ipad.nav = function(main_content, main_window) {
 	speakers_button.addEventListener('click', App.swapView(main_content, "speakers#index"));
 	maps_button.addEventListener('click', App.action.p(main_window, "maps#index"));
 
-	refresh_view.add(activity);
-	refresh_view.add(refresh_button);
 	
 	nav_view.add(schedules_button);
 	nav_view.add(maps_button);
