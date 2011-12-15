@@ -1,4 +1,5 @@
 UI.SubTabs = function(win, tab_names, options) {	
+	
 	var width = Ti.Platform.displayCaps.platformWidth
 	, backgroundImage = 'images/buttonbar/button2_selected.png'
 	, backgroundSelectedImage = 'images/buttonbar/button2_unselected_shadow.png'
@@ -6,7 +7,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	, options = options || {};
 	
 	var view = Ti.UI.createView({
-		backgroundColor: "black"
+		backgroundImage:"images/iphone/NCR_iPhone_main_bg.png"
 	});
 	
 	var scrollview = Titanium.UI.createView({
@@ -16,14 +17,14 @@ UI.SubTabs = function(win, tab_names, options) {
 	});
 	
 	var tabbedBarView = Ti.UI.createView({
-    backgroundColor: '#555',
+    backgroundColor: 'transparent',
     top: 0,
     height: 36
   });
 
   var tabbedBar = Ti.UI.createView({
     top: 0,
-    backgroundColor: '#000',
+    backgroundColor: 'transparent',
     height: 36,
     width: width
   });

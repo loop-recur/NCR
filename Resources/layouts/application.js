@@ -1,8 +1,10 @@
 Layouts.application = function() {
 	var tabGroup = Ti.UI.createTabGroup();
 	
+	var app_background_image = "images/iphone/NCR_iPhone_main_bg.png";
+	
 	var sessions_win = Ti.UI.createWindow({
-			backgroundImage:'images/NCR_iPad2_main_bg.png',
+			backgroundImage:app_background_image,
 			navBarHidden:true
 	});
 	
@@ -10,11 +12,12 @@ Layouts.application = function() {
 	
 	sessions_tab = Ti.UI.createTab({
 	    title:'Schedule',
-	    window:sessions_win
+	    window:sessions_win,
+			icon:'images/iphone/NCR_iPhone_tabbar_schedule_icon.png'
 	});
 	
 	var speakers_win = Ti.UI.createWindow({
-			backgroundImage:'images/NCR_iPad2_main_bg.png',
+			backgroundImage:app_background_image,
 			navBarHidden:true
 	});
 	
@@ -22,11 +25,12 @@ Layouts.application = function() {
 	
 	speakers_tab = Ti.UI.createTab({
 	    title:'Speakers',
-	    window:speakers_win
+	    window:speakers_win,
+			icon:'images/iphone/NCR_iPhone_tabbar_speakers_icon.png'
 	});
 	
 	var maps_win = Ti.UI.createWindow({
-			backgroundImage:'images/NCR_iPad2_main_bg.png',
+			backgroundImage:app_background_image,
 			navBarHidden:true
 	});
 	
@@ -34,11 +38,12 @@ Layouts.application = function() {
 	
 	maps_tab = Ti.UI.createTab({
 	    title:'Event Maps',
-	    window:maps_win
+	    window:maps_win,
+			icon:'images/iphone/NCR_iPhone_tabbar_events_icon.png'
 	});
 	
 	var news_win = Ti.UI.createWindow({
-			backgroundImage:'images/NCR_iPad2_main_bg.png',
+			backgroundImage:app_background_image,
 			navBarHidden:true
 	});
 	
@@ -46,7 +51,8 @@ Layouts.application = function() {
 	
 	news_tab = Ti.UI.createTab({
 	    title:'News',
-	    window:news_win
+	    window:news_win,
+			icon:'images/iphone/NCR_iPhone_tabbar_newsfeed_icon.png'
 	});
 	
 	map(function(t){ tabGroup.addTab(t) }, [sessions_tab, speakers_tab, maps_tab, news_tab]);	

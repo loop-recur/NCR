@@ -1,28 +1,113 @@
 Views.sessions.show = function(win, session) {	
 	var view = Ti.UI.createView({
-		backgroundColor: "white"
+		backgroundImage:"images/iphone/NCR_iPhone_main_bg.png"
+	});
+
+	var title = Ti.UI.createLabel({
+		font:{fontFamily:'GillSans',fontSize:"20dp",fontWeight:'regular'},
+		color:'#444444',
+		height:49,
+		text:session.title,
+		top:20,
+		left:27,
+		width:280
 	});
 	
-	var title = Ti.UI.createLabel({
-		text:session.title, 
-		font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
-		color:"#444444",
-		left:10,
-		top:20,
-		height:"auto",
-		width:"auto"
-	});
-		
 	var description = Ti.UI.createLabel({
-		text:session.description, 
+		top:117,
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
-		color:"#333333",
-		left:35,
-		top:35,
-		height:"auto",
-		width:"auto"
+		color:'#666666',
+		height:105,
+		text:session.description,
+		left:27,
+		width:280
 	});
-		
+	
+	var speakers = Ti.UI.createLabel({
+		top:79,
+		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
+		color:'#444444',
+		height:35,
+		text:'Speakers',
+		left:20,
+		width:217
+	});
+	
+	var divider = Ti.UI.createView({
+		backgroundImage:"images/iphone-show/NCR_iPhone_shadow_divider.png",
+		top:220,
+		height:13,
+		width:320
+	});
+
+	view.add(divider);
+
+	var date_label = Ti.UI.createLabel({
+		top:228,
+		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
+		color:'#444444',
+		height:35,
+		text:'Date goes here',
+		left:75,
+		width:217
+	});
+
+	view.add(date_label);
+
+	var time_label = Ti.UI.createLabel({
+		top:274,
+		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
+		color:'#444444',
+		height:35,
+		text:'Date goes here',
+		left:75,
+		width:217
+	});
+
+	view.add(time_label);
+
+	var location_label = Ti.UI.createLabel({
+		top:322,
+		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
+		color:'#444444',
+		height:35,
+		text:'Date goes here',
+		left:75,
+		width:217
+	});
+
+	view.add(location_label);
+
+	var date_icon = Ti.UI.createView({
+		backgroundImage:'images/iphone-show/NCR_iPhone_calendar_icon.png',
+		top:238,
+		height:15,
+		left:42,
+		width:16
+	});
+
+	view.add(date_icon);
+
+	var clock_icon = Ti.UI.createView({
+		backgroundImage:'images/iphone/NCR_iPhone_clock_icon.png',
+		top:284,
+		height:15,
+		left:42,
+		width:16
+	});
+
+	view.add(clock_icon);
+
+	var location_icon = Ti.UI.createView({
+		backgroundImage:'images/iphone-show/NCR_iPhone_location_icon.png',
+		top:332,
+		height:15,
+		left:42,
+		width:16
+	});
+	
+	view.add(location_icon);
+	
 	view.add(title);
 	view.add(description);
 	

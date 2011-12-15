@@ -6,15 +6,15 @@ Views.sessions.table = function(win, sessions) {
 	var createHeaderRow = function(date) {
 		var name = Ti.UI.createLabel({
 			text:date, 
-			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
+			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"18dp"},
 			color:"white",
 			left:10,
-			height:40,
+			height:28,
 			width:"100%"
 		});
 	
 		var row = Ti.UI.createTableViewRow({
-			height:40,
+			height:30,
 			opacity:0.75,
 			backgroundGradient:{
 				type:'linear',
@@ -41,18 +41,7 @@ Views.sessions.table = function(win, sessions) {
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
 			color:"#444444",
 			left:10,
-			top:20,
-			height:"auto",
-			width:"auto",
-			id: session.id
-		});
-		
-		var description = Ti.UI.createLabel({
-			text:description, 
-			font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
-			color:"#333333",
-			left:35,
-			top:35,
+			top:10,
 			height:"auto",
 			width:"auto",
 			id: session.id
@@ -70,13 +59,12 @@ Views.sessions.table = function(win, sessions) {
 		});
 		
 		var row = Ti.UI.createTableViewRow({
-			height:80,
+			height:60,
 			id: session.id,
 			className:'session'
 		});
 	
 		row.add(title);
-		row.add(description);
 		row.add(time);
 	
 		return row;
@@ -91,7 +79,6 @@ Views.sessions.table = function(win, sessions) {
 	var tableView = Ti.UI.createTableView({
 		data:createData(sessions),
 		backgroundColor:"transparent",
-		top:82,
 		bottom:0
 	});
 	
