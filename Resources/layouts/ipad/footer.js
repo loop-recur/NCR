@@ -20,19 +20,19 @@ Layouts.ipad.footer = function() {
 		height:27
 	});
 		
-	news_bar.addEventListener('click', function(){
+	news_bar.addEventListener('click', function() {
 		if (footer_container.height == 600) {
-			footer_container.animate({height:220, duration:500});
+			footer_container.animate({height:220, duration:500}, function() {
+				footer_container.height = 220;
+			});
 			news_area.animate({height:200, duration:700});
-			news_area.animate({top:30, duration:700});			
-			// footer_container.height = 220;
-			// I think it's not doing the toggle b/c it's not actually setting the height after the animation. 
-			// Also, for whatever reason, it's making the news_area larger, but the table row isn't following the height change.
+			news_area.animate({top:30, duration:700});
 		} else {
-			footer_container.animate({height:600, duration:500});
+			footer_container.animate({height:600, duration:500}, function() {
+				footer_container.height = 600;
+			});
 			news_area.animate({height:500, duration:700});
 			news_area.animate({top:40, duration:700});
-			// footer_container.height = 600;
 		};
 		
 	});

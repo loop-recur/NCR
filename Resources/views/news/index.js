@@ -5,7 +5,7 @@ Views.news.index = function(win, posts) {
 	
 	var createTableViewRow = function(post) {
 		
-		var avatar_bg = Titanium.UI.createView({
+		var avatar_bg = Ti.UI.createView({
 			backgroundImage:"images/footer/NCR_iPad_avatar_underlay.png",
 			height:66,
 			width:63,
@@ -13,7 +13,7 @@ Views.news.index = function(win, posts) {
 			bottom:30
 		});
 		
-		var avatar = Titanium.UI.createImageView({
+		var avatar = Ti.UI.createImageView({
 			image: post.profile_image_url,
 			height:50,
 			width:50,
@@ -22,7 +22,7 @@ Views.news.index = function(win, posts) {
 		
 		avatar_bg.add(avatar);
 		
-		var body_bg = Titanium.UI.createView({
+		var body_bg = Ti.UI.createView({
 			backgroundImage:"images/footer/NCR_iPad2_feed_quote_box_left.png",
 			height:90,
 			width:250,
@@ -30,7 +30,7 @@ Views.news.index = function(win, posts) {
 			bottom:15
 		});
 		
-		var body = Titanium.UI.createLabel({
+		var body = Ti.UI.createLabel({
 			text:post.text, 
 			font:{fontFamily:'Helvetica',fontSize:"13dp",fontWeight:'regular'},
 			color:"#6c7881",
@@ -42,7 +42,7 @@ Views.news.index = function(win, posts) {
 		
 		body_bg.add(body);
 		
-		var time = Titanium.UI.createLabel({
+		var time = Ti.UI.createLabel({
 			text:Date.parse(post.created_at).toString('M/d/yy h:mm tt'), 
 			font:{fontFamily:'Helvetica',fontSize:"12dp",fontWeight:'regular'},
 			color:"#6c7881",

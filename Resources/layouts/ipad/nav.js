@@ -37,22 +37,6 @@ Layouts.ipad.nav = function(main_content, main_window) {
 		id: 'speakers'
 	});
 	
-	var refresh_view = Ti.UI.createView({
-		top:30,
-		right: 10,
-		height:60,
-		width:60,
-		backgroundColor: 'black'
-	});
-	
-	var refresh_button = Ti.UI.createButton({
-		title: "refresh",
-		height:60,
-		width:60
-	});
-	
-	refresh_button.addEventListener('click', DbUpdater.update);
-	
 	var activity = Helpers.ui.spinner();
 	activity.show();
 	
@@ -68,8 +52,6 @@ Layouts.ipad.nav = function(main_content, main_window) {
 	nav_view.add(schedules_button);
 	nav_view.add(maps_button);
 	nav_view.add(speakers_button);
-	nav_view.add(refresh_view);
-	
 	
 	schedules_button.fireEvent('click', {});
 	

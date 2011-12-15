@@ -10,7 +10,7 @@ UI.SubTabs = function(win, tab_names, options) {
 		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
 	});
 	
-	var scrollview = Titanium.UI.createView({
+	var scrollview = Ti.UI.createView({
 		top: 36,
 		width:"100%",
 		height:'100%'
