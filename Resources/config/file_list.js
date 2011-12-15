@@ -18,6 +18,7 @@ FileList = [
 	, "controllers/news.js"
 	, "views/ipad/sessions/index.js"
 	, "views/ipad/speakers/index.js"
+	, "views/ipad/news/index.js"
 	, "views/maps/index.js"
 	, "views/sessions/index.js"
 	, "views/sessions/table.js"

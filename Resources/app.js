@@ -22,7 +22,7 @@ App.setHost("http://ncr.herokuapp.com/api");
 App.db = LoopRecur.Db(Ti.Database, isAndroid);
 App.db.use("ncr");
 
-SchemaLoad.createDb({redo : true}); // leave true for dev only.  True simulates first load.
+SchemaLoad.createDb({redo : false});
 
 Layouts[Ti.Platform.osname].application ? Layouts[Ti.Platform.osname].application() : Layouts.application();
 

@@ -1,10 +1,10 @@
 Views.sessions.index = function(win, params, sessions) {	
 	if(!params.speaker_id) {
 		var logo = Ti.UI.createView({
-			backgroundImage:'images/iphone/NCR_iPhone_main_header.png',
-			height:82,
+			backgroundImage:'images/phones/NCR_iPhone_main_header.png',
+			height:105,
 			top:5,
-			width:220
+			width:320
 		});
 
 		win.add(logo);

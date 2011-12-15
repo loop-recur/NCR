@@ -1,6 +1,6 @@
 Views.sessions.show = function(win, session) {	
 	var view = Ti.UI.createView({
-		backgroundImage:"images/iphone/NCR_iPhone_main_bg.png"
+		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
 	});
 
 	var title = Ti.UI.createLabel({
@@ -34,7 +34,7 @@ Views.sessions.show = function(win, session) {
 	});
 	
 	var divider = Ti.UI.createView({
-		backgroundImage:"images/iphone-show/NCR_iPhone_shadow_divider.png",
+		backgroundImage:"images/phones-show/NCR_iPhone_shadow_divider.png",
 		top:220,
 		height:13,
 		width:320
@@ -79,7 +79,7 @@ Views.sessions.show = function(win, session) {
 	view.add(location_label);
 
 	var date_icon = Ti.UI.createView({
-		backgroundImage:'images/iphone-show/NCR_iPhone_calendar_icon.png',
+		backgroundImage:'images/phones-show/NCR_iPhone_calendar_icon.png',
 		top:238,
 		height:15,
 		left:42,
@@ -89,7 +89,7 @@ Views.sessions.show = function(win, session) {
 	view.add(date_icon);
 
 	var clock_icon = Ti.UI.createView({
-		backgroundImage:'images/iphone/NCR_iPhone_clock_icon.png',
+		backgroundImage:'images/phones/NCR_iPhone_clock_icon.png',
 		top:284,
 		height:15,
 		left:42,
@@ -99,7 +99,7 @@ Views.sessions.show = function(win, session) {
 	view.add(clock_icon);
 
 	var location_icon = Ti.UI.createView({
-		backgroundImage:'images/iphone-show/NCR_iPhone_location_icon.png',
+		backgroundImage:'images/phones-show/NCR_iPhone_location_icon.png',
 		top:332,
 		height:15,
 		left:42,

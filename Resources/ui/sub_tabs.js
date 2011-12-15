@@ -7,7 +7,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	, options = options || {};
 	
 	var view = Ti.UI.createView({
-		backgroundImage:"images/iphone/NCR_iPhone_main_bg.png"
+		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
 	});
 	
 	var scrollview = Titanium.UI.createView({
@@ -47,7 +47,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	
 	var createTab = function(tab_name) {
 		var index = tab_names.indexOf(tab_name);
-		var left = width - ((parseInt(index) + 1) * (width / tab_name.length));
+		var left = width - ((index + 1) * (width / tab_name.length));
 		
 		var tab = Ti.UI.createButton({
 	      backgroundImage: backgroundImage,
@@ -70,7 +70,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	var buttons = map(createTab, tab_names);
 	UI.ButtonGroup.apply(UI.ButtonGroup, buttons);
 	
-	map(function(t){ tabbedBar.add(t) }, buttons);
+	map(function(t){ tabbedBar.add(t); }, buttons);
 	
 	first(buttons).fireEvent('click', {});
 	

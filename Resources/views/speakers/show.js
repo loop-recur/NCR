@@ -1,6 +1,6 @@
 Views.speakers.show = function(win, speaker) {	
 	var view = Ti.UI.createView({
-		backgroundImage:"images/iphone/NCR_iPhone_main_bg.png"
+		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
 	});
 	
 	var name = Ti.UI.createLabel({
@@ -24,7 +24,7 @@ Views.speakers.show = function(win, speaker) {
 	});
 	
 	var divider = Ti.UI.createView({
-		backgroundImage:"images/iphone-show/NCR_iPhone_shadow_divider.png",
+		backgroundImage:"images/phones-show/NCR_iPhone_shadow_divider.png",
 		top:180,
 		height:13,
 		width:320
