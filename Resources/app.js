@@ -2,7 +2,6 @@
 Ti.include('initializers/init.js');
 App.run();
 
-// require('support/date');
 Ti.include('/support/date.js');
 require('support/twitterlib');
 require('support/yammer');
@@ -19,7 +18,6 @@ isIPad = Ti.Platform.osname == 'ipad';
 isIPhone = Ti.Platform.osname == 'iphone';
 
 App.setHost("http://ncr.herokuapp.com/api");
-// App.setHost("http://localhost:3000/api");
 
 App.db = LoopRecur.Db(Ti.Database, isAndroid);
 App.db.use("ncr");
