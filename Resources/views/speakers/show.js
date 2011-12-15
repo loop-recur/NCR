@@ -24,7 +24,7 @@ Views.speakers.show = function(win, speaker) {
 	});
 	
 	var divider = Ti.UI.createView({
-		backgroundImage:"images/phones-show/NCR_iPhone_shadow_divider.png",
+		backgroundImage:"images/iphone-show/NCR_iPhone_shadow_divider.png",
 		top:180,
 		height:13,
 		width:320
