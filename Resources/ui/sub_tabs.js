@@ -7,7 +7,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	, options = options || {};
 	
 	var view = Ti.UI.createView({
-		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
+		backgroundImage: "images/NCR_iPad2_main_bg.png"
 	});
 	
 	var scrollview = Ti.UI.createView({
@@ -17,44 +17,46 @@ UI.SubTabs = function(win, tab_names, options) {
 	});
 	
 	var tabbedBarView = Ti.UI.createView({
-    backgroundColor: 'transparent',
+    backgroundColor: '#111111',
     top: 0,
     height: 36
   });
 
-  var tabbedBar = Ti.UI.createView({
-    top: 0,
+	var tabbedBar = Ti.UI.createScrollView({
+		top: 0,
     backgroundColor: 'transparent',
     height: 36,
-    width: width
-  });
-
-	if(!options.skip_back) {
-		var backButton = Ti.UI.createButton({
-			title: "Back",
-			width: 50,
-			height: 30,
-			left: 0
-		});
-
-		backButton.addEventListener('click', function(e) {
-			win.remove(view);
-		});
-
-		tabbedBar.add(backButton);
-	}
-
+		contentWidth:"auto",
+		contentHeight:'auto',
+		showHorizontalScrollIndicator:true,
+		showVerticalScrollIndicator:false
+	});
 	
+
 	var createTab = function(tab_name) {
+		var base_width = 130;
+
 		var index = tab_names.indexOf(tab_name);
-		var left = width - ((index + 1) * (width / tab_name.length));
+		var left = ((index+1) * base_width);
+		
+		if(isIPhone) {			
+			if(!options.center) {
+				left = left - 130;
+			} else {
+				base_width = 120;
+				var left = ((index+1) * 100) - 100;
+			}
+		}
 		
 		var tab = Ti.UI.createButton({
 	      backgroundImage: backgroundImage,
 				backgroundSelectedImage: backgroundSelectedImage,
 				title: tab_name,
 	      height: 36,
-				width: (width / tab_name.length),
+				width: base_width,
+				borderColor: "#444444",
+				borderRadius: 1.0,
+				font:{fontFamily:'GillSans',fontSize:"15dp",fontWeight:'regular'},
 	      left: left,
 	      id: tab_name
 	  });
@@ -71,6 +73,21 @@ UI.SubTabs = function(win, tab_names, options) {
 	UI.ButtonGroup.apply(UI.ButtonGroup, buttons);
 	
 	map(function(t){ tabbedBar.add(t); }, buttons);
+	
+	if(!options.skip_back) {
+		var backButton = Ti.UI.createButton({
+			title: "Back",
+			width: 50,
+			height: 30,
+			left: 0
+		});
+
+		backButton.addEventListener('click', function(e) {
+			win.remove(view);
+		});
+
+		tabbedBar.add(backButton);
+	}
 	
 	first(buttons).fireEvent('click', {});
 	

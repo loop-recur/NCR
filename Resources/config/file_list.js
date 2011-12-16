@@ -1,9 +1,11 @@
 FileList = [
 	"config/sessions.js"
 	, "config/speakers.js"
+	, "config/maps.js"
 	, "helpers/application.js"
 	, "ui/button_group.js"
 	, "ui/sub_tabs.js"
+	, "ui/picker.js"
 	, "helpers/ui.js"
 	, "lib/db_updater.js"
 	, "lib/formatter.js"

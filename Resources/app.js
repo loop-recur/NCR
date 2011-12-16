@@ -7,10 +7,10 @@ require('support/twitterlib');
 require('support/yammer');
 
 Yammer.config({
-	oauth_consumer_key: "lvms8bxKTfLEIqnLHe3p0A",
-	consumer_secret: "LfpNjLCCMFVtknjUwIoWGP8KNyocGO01zGll8800",
-	access_token: "06nSMwqshlY70uIpjGQ",
-	access_token_secret: "2NTqBLB456k9oWoYy7Rfn9RuGIidRYl7o8UdU0oar4"
+	oauth_consumer_key: "yvBd07vZX7562qlAohvPQ",
+	consumer_secret: "wnLmij59ByH4XQvd4eyuiKgatrr40MLKdKwE9iXy0",
+	access_token: "rSH7BhKDmiu4jGSR5VUjg",
+	access_token_secret: "sQfypTH3KxbAMR5y1pf1SpOmtyMiDjZQrY1VxxXI0Y"
 });
 
 isAndroid = Ti.Platform.osname == 'android';
