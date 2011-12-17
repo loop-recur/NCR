@@ -32,6 +32,18 @@ Views.speakers.show = function(win, speaker) {
 
 	view.add(divider);
 	
+	var sessions = Ti.UI.createLabel({
+		top:195,
+		font:{fontFamily:'Helvetica',fontSize:"18dp",fontWeight:'bold'},
+		color:'#444444',
+		height:20,
+		text:"Sessions:",
+		left:15,
+	});
+	
+	view.add(sessions);
+	
+	
 	var session_view = Ti.UI.createView({
 		bottom:0,
 		height:150

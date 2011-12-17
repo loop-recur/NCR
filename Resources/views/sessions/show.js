@@ -47,7 +47,7 @@ Views.sessions.show = function(win, session) {
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
 		height:35,
-		text:'Date goes here',
+		text:"January 11, 2012",
 		left:75,
 		width:217
 	});
@@ -59,7 +59,7 @@ Views.sessions.show = function(win, session) {
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
 		height:35,
-		text:'Date goes here',
+		text:'8:00AM - 10:00AM',
 		left:75,
 		width:217
 	});
@@ -71,7 +71,7 @@ Views.sessions.show = function(win, session) {
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
 		height:35,
-		text:'Date goes here',
+		text:'Texas Ballroom',
 		left:75,
 		width:217
 	});

@@ -74,11 +74,11 @@ Views.ipad.sessions.index = function(win, params, sessions) {
 		
 		var addSpeaker = function(speaker) {
 			var name = Ti.UI.createLabel({
-				text:speaker.name, 
-				font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
-				color:"black",
-				top: 45,
-				left:20
+				text:"Speaker: " + speaker.name, 
+				font:{fontFamily:'HelveticaNeue,',fontSize:"14dp"},
+				color:"#666666",
+				top: 55,
+				left:10
 			});
 
 			row.add(name);

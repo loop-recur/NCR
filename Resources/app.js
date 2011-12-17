@@ -28,4 +28,5 @@ Layouts[Ti.Platform.osname].application ? Layouts[Ti.Platform.osname].applicatio
 
 App.db.find("sessions", {}, when(empty, DbUpdater.loadCannedData));
 
-DbUpdater.update();
+// DbUpdater.update();
+setTimeout(DbUpdater.update, 2000);

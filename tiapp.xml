@@ -9,11 +9,11 @@
     </deployment-targets>
     <id>com.looprecur.ncr</id>
     <name>ncr</name>
-    <version>0.5</version>
-    <publisher>brian</publisher>
-    <url>http://looprecur.com</url>
-    <description>not specified</description>
-    <copyright>2011 by brian</copyright>
+    <version>0.6</version>
+    <publisher>loop/recur</publisher>
+    <url>http://www.looprecur.com</url>
+    <description>NCR Conference Schedule and Information</description>
+    <copyright>2011 by loop/recur</copyright>
     <icon>appicon.png</icon>
     <persistent-wifi>false</persistent-wifi>
     <prerendered-icon>true</prerendered-icon>
