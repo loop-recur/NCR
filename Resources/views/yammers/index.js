@@ -10,35 +10,35 @@ Views.yammers.index = function(win, yammers) {
 		
 		var avatar_bg = Ti.UI.createView({
 			backgroundImage:"images/footer/NCR_iPad_avatar_underlay.png",
-			height:66,
-			width:63,
+			height:"66dp",
+			width:"63dp",
 			left:0,
-			bottom:30
+			bottom:"30dp"
 		});
 
 		var avatar = Ti.UI.createImageView({
 			image: mugshot_url,
-			height:50,
-			width:50,
-			bottom:11
+			height:"50dp",
+			width:"50dp",
+			bottom:"11dp"
 		});
 		
 		avatar_bg.add(avatar);
 		
 		var body_bg = Ti.UI.createView({
 			backgroundImage:"images/footer/NCR_iPad2_feed_quote_box_left.png",
-			height:90,
-			width:360,
+			height:"90dp",
+			width:"360dp",
 			right:0,
-			bottom:20
+			bottom:"20dp"
 		});
 		
 		var body = Ti.UI.createLabel({
 			text:yammer.body.rich, 
 			font:{fontFamily:'Helvetica',fontSize:"13dp",fontWeight:'regular'},
 			color:"#6c7881",
-			width:300,
-			left:40,
+			width:"300dp",
+			left:"40dp",
 		});
 		
 		body_bg.add(body);
@@ -47,14 +47,14 @@ Views.yammers.index = function(win, yammers) {
 			text:Date.parse(yammer.created_at).toString('M/d/yy h:mm tt'), 
 			font:{fontFamily:'Helvetica',fontSize:"12dp",fontWeight:'regular'},
 			color:"#6c7881",
-			bottom:10,
+			bottom:"10dp",
 			left:0,
 			height:"auto",
 			width:"auto"
 		});
 			
 		var row = Ti.UI.createTableViewRow({
-			height:110
+			height:"110dp"
 		});
 		
 		row.add(avatar_bg);
@@ -67,10 +67,10 @@ Views.yammers.index = function(win, yammers) {
 	var tableView = Ti.UI.createTableView({
 		data:map(createTableViewRow, yammers.messages),
 		backgroundColor:"transparent",
-		width:430,
-		left:10, 
-		height:180,
-		top:10
+		width:"430dp",
+		left:"10dp", 
+		height:"180dp",
+		top:"10dp"
 	});
 	
 	view.add(tableView);

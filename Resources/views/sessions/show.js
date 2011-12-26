@@ -12,104 +12,104 @@ Views.sessions.show = function(win, session) {
 	var title = Ti.UI.createLabel({
 		font:{fontFamily:'GillSans',fontSize:"20dp",fontWeight:'regular'},
 		color:'#444444',
-		height:49,
+		height:"49dp",
 		text:session.title,
-		top:20,
-		left:27,
-		width:280
+		top:"20dp",
+		left:"27dp",
+		width:"280dp"
 	});
 	
 	var description = Ti.UI.createLabel({
-		top:117,
+		top:"117dp",
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#666666',
-		height:105,
+		height:"105dp",
 		text:session.description,
-		left:27,
-		width:280
+		left:"27dp",
+		width:"280dp"
 	});
 	
 	var speakers = Ti.UI.createLabel({
-		top:79,
+		top:"79dp",
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
-		height:35,
+		height:"35dp",
 		text:'Speakers',
-		left:20,
-		width:217
+		left:"20dp",
+		width:"217dp"
 	});
 	
 	var divider = Ti.UI.createView({
 		backgroundImage:"images/iphone-show/NCR_iPhone_shadow_divider.png",
-		top:220,
-		height:13,
-		width:320
+		top:"220dp",
+		height:"13dp",
+		width:"320dp"
 	});
 
 	view.add(divider);
 
 	var date_label = Ti.UI.createLabel({
-		top:228,
+		top:"228dp",
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
-		height:35,
+		height:"35dp",
 		text: session.date.toString('MM/dd/yyyy'),
-		left:75,
-		width:217
+		left:"75dp",
+		width:"217dp"
 	});
 
 	view.add(date_label);
 
 	var time_label = Ti.UI.createLabel({
-		top:274,
+		top:"274dp",
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
-		height:35,
+		height:"35dp",
 		text:time,
-		left:75,
-		width:217
+		left:"75dp",
+		width:"217dp"
 	});
 
 	view.add(time_label);
 
 	var location_label = Ti.UI.createLabel({
-		top:322,
+		top:"322dp",
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
-		height:35,
+		height:"35dp",
 		text:session.location,
-		left:75,
-		width:217
+		left:"75dp",
+		width:"217dp"
 	});
 
 	view.add(location_label);
 
 	var date_icon = Ti.UI.createView({
 		backgroundImage:'images/iphone-show/NCR_iPhone_calendar_icon.png',
-		top:238,
-		height:15,
-		left:42,
-		width:16
+		top:"238dp",
+		height:"15dp",
+		left:"42dp",
+		width:"16dp"
 	});
 
 	view.add(date_icon);
 
 	var clock_icon = Ti.UI.createView({
 		backgroundImage:'images/phones/NCR_iPhone_clock_icon.png',
-		top:284,
-		height:15,
-		left:42,
-		width:16
+		top:"284dp",
+		height:"15dp",
+		left:"42dp",
+		width:"16dp"
 	});
 
 	view.add(clock_icon);
 
 	var location_icon = Ti.UI.createView({
 		backgroundImage:'images/iphone-show/NCR_iPhone_location_icon.png',
-		top:332,
-		height:15,
-		left:42,
-		width:16
+		top:"332dp",
+		height:"15dp",
+		left:"42dp",
+		width:"16dp"
 	});
 	
 	view.add(location_icon);

@@ -8,8 +8,8 @@ Views.speakers.index = function(win, speakers) {
 			text:letter, 
 			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
 			color:"white",
-			left:10,
-			height:28,
+			left:"10dp",
+			height:"28dp",
 			width:"100%"
 		});
 
@@ -26,7 +26,7 @@ Views.speakers.index = function(win, speakers) {
 			}
 		}
 
-		var row = Ti.UI.createTableViewRow(merge({ height:30 }, properties));
+		var row = Ti.UI.createTableViewRow(merge({ height:"30dp" }, properties));
 			
 		row.add(name);
 		return row;
@@ -37,14 +37,14 @@ Views.speakers.index = function(win, speakers) {
 			text:speaker.name, 
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
 			color:"#444444",
-			left:10,
+			left:"10dp",
 			height:"auto",
 			width:"auto",
 			id: speaker.id
 		});
 			
 		var row = Ti.UI.createTableViewRow({
-			height:50,
+			height:"50dp",
 			id: speaker.id
 		});
 		

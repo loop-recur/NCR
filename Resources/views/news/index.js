@@ -7,37 +7,37 @@ Views.news.index = function(win, posts) {
 		
 		var avatar_bg = Ti.UI.createView({
 			backgroundImage:"images/footer/NCR_iPad_avatar_underlay.png",
-			height:66,
-			width:63,
-			left:3,
-			bottom:30
+			height:"66dp",
+			width:"63dp",
+			left:"3dp",
+			bottom:"30dp"
 		});
 		
 		var avatar = Ti.UI.createImageView({
 			image: post.profile_image_url,
-			height:50,
-			width:50,
-			bottom:11
+			height:"50dp",
+			width:"50dp",
+			bottom:"11dp"
 		});
 		
 		avatar_bg.add(avatar);
 		
 		var body_bg = Ti.UI.createView({
 			backgroundImage:"images/footer/NCR_iPad2_feed_quote_box_left.png",
-			height:90,
-			width:250,
-			right:2,
-			bottom:15
+			height:"90dp",
+			width:"250dp",
+			right:"2dp",
+			bottom:"15dp"
 		});
 		
 		var body = Ti.UI.createLabel({
 			text:post.text, 
 			font:{fontFamily:'Helvetica',fontSize:"13dp",fontWeight:'regular'},
 			color:"#6c7881",
-			width:230,
-			height:75,
-			left:20,
-			top:2
+			width:"230dp",
+			height:"75dp",
+			left:"20dp",
+			top:"2dp"
 		});
 		
 		body_bg.add(body);
@@ -46,14 +46,14 @@ Views.news.index = function(win, posts) {
 			text:Date.parse(post.created_at).toString('M/d/yy h:mm tt'), 
 			font:{fontFamily:'Helvetica',fontSize:"12dp",fontWeight:'regular'},
 			color:"#6c7881",
-			bottom:3,
-			left:3,
+			bottom:"3dp",
+			left:"3dp",
 			height:"auto",
 			width:"auto"
 		});
 			
 		var row = Ti.UI.createTableViewRow({
-			height:110,
+			height:"110dp",
 			className:'news'
 		});
 		
@@ -67,7 +67,7 @@ Views.news.index = function(win, posts) {
 	var tableView = Ti.UI.createTableView({
 		data:map(createTableViewRow, posts),
 		backgroundColor:"transparent",
-		top:10
+		top:"10dp"
 	});
 	
 	view.add(tableView);

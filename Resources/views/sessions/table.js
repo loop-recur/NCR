@@ -8,8 +8,8 @@ Views.sessions.table = function(win, sessions) {
 			text:date, 
 			font:{fontFamily:'HelveticaNeue-Bold',fontSize:"18dp"},
 			color:"white",
-			left:10,
-			height:28,
+			left:"10dp",
+			height:"28dp",
 			width:"100%"
 		});
 		
@@ -26,7 +26,7 @@ Views.sessions.table = function(win, sessions) {
 			}
 		}
 
-		var row = Ti.UI.createTableViewRow(merge({ height:30 }, properties));
+		var row = Ti.UI.createTableViewRow(merge({ height:"30dp" }, properties));
 	
 		row.add(name);
 		return row;
@@ -45,8 +45,8 @@ Views.sessions.table = function(win, sessions) {
 			text:title, 
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
 			color:"#444444",
-			left:10,
-			top:10,
+			left:"10dp",
+			top:"10dp",
 			height:"auto",
 			width:"auto",
 			id: session.id
@@ -56,7 +56,7 @@ Views.sessions.table = function(win, sessions) {
 			text:time, 
 			font:{fontFamily:'GillSans',fontSize:"16dp",fontWeight:'bold'},
 			color:"#444444",
-			right:10,
+			right:"10dp",
 			bottom:0,
 			height:"auto",
 			width:"auto",
@@ -64,7 +64,7 @@ Views.sessions.table = function(win, sessions) {
 		});
 		
 		var row = Ti.UI.createTableViewRow({
-			height:60,
+			height:"60dp",
 			id: session.id,
 			className:'session'
 		});
