@@ -60,7 +60,8 @@ Views.speakers.index = function(win, speakers) {
 	var createData = compose(flatten, omap(createGroupedRow));
 	
 	var tableView = Ti.UI.createTableView({
-		data:createData(speakers)
+		data:createData(speakers),
+		backgroundColor:'transparent'
 	});
 	
 	var refreshTable = function(speakers) {

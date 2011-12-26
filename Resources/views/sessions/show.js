@@ -1,4 +1,6 @@
-Views.sessions.show = function(win, session) {	
+Views.sessions.show = function(win, session) {
+	win.barColor = "black";
+		
 	var start = Date.parse(session.start_time);
 	var end = Date.parse(session.end_time);
 	var time = Formatter.timeSpan([start, end]);

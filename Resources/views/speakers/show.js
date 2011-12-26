@@ -1,4 +1,6 @@
 Views.speakers.show = function(win, speaker) {	
+	win.barColor = "black";
+	
 	var view = Ti.UI.createView({
 		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
 	});
@@ -6,15 +8,25 @@ Views.speakers.show = function(win, speaker) {
 	var name = Ti.UI.createLabel({
 		font:{fontFamily:'GillSans',fontSize:"20dp",fontWeight:'regular'},
 		color:'#444444',
-		height:49,
+		height:22,
 		text:speaker.name,
 		top:20,
 		left:27,
 		width:280
 	});
 	
+	var company = Ti.UI.createLabel({
+		font:{fontFamily:'GillSans-Light',fontSize:"15dp",fontWeight:'regular'},
+		color:'#444444',
+		height:22,
+		text:speaker.company,
+		top:42,
+		left:38,
+		width:280
+	});
+	
 	var bio = Ti.UI.createLabel({
-		top:80,
+		top:65,
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#666666',
 		height:105,
@@ -34,7 +46,7 @@ Views.speakers.show = function(win, speaker) {
 	
 	var sessions = Ti.UI.createLabel({
 		top:195,
-		font:{fontFamily:'Helvetica',fontSize:"18dp",fontWeight:'bold'},
+		font:{fontFamily:'Helvetica',fontSize:"17dp",fontWeight:'bold'},
 		color:'#444444',
 		height:20,
 		text:"Sessions:",
@@ -52,6 +64,7 @@ Views.speakers.show = function(win, speaker) {
 	App.action(session_view, "sessions#index", {speaker_id: speaker.id});
 	
 	view.add(name);
+	view.add(company);
 	view.add(bio);
 	
 	win.add(view);

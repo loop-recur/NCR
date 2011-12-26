@@ -77,8 +77,11 @@ Views.ipad.sessions.index = function(win, params, sessions) {
 				text:"Speaker: " + speaker.name, 
 				font:{fontFamily:'HelveticaNeue,',fontSize:"14dp"},
 				color:"#666666",
-				top: 55,
-				left:10
+				height:16,
+				width:150,
+				top: 10,
+				right:10,
+				textAlign:'right'
 			});
 
 			row.add(name);
