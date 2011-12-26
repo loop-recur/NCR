@@ -76,10 +76,13 @@ UI.SubTabs = function(win, tab_names, options) {
 	
 	if(!options.skip_back) {
 		var backButton = Ti.UI.createButton({
+			backgroundImage: backgroundImage,
 			title: "Back",
-			width: 50,
-			height: 30,
-			left: 0
+      height: 36,
+			width: 130,
+			borderColor: "#444444",
+			font:{fontFamily:'GillSans',fontSize:"16dp",fontWeight:'regular'},
+      left: 0
 		});
 
 		backButton.addEventListener('click', function(e) {
