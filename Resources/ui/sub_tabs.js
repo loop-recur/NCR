@@ -9,7 +9,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	});
 	
 	var scrollview = Ti.UI.createView({
-		top: 36,
+		top: "36dp",
 		width:"100%",
 		height:'100%'
 	});
@@ -17,13 +17,13 @@ UI.SubTabs = function(win, tab_names, options) {
 	var tabbedBarView = Ti.UI.createView({
     backgroundColor: '#111111',
     top: 0,
-    height: 36
+    height: "36dp"
   });
 
 	var tabbedBar = Ti.UI.createScrollView({
 		top: 0,
     backgroundColor: 'transparent',
-    height: 36,
+    height: "36dp",
 		contentWidth:"auto",
 		contentHeight:'auto',
 		showHorizontalScrollIndicator:true,
@@ -50,7 +50,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	      backgroundImage: backgroundImage,
 				backgroundSelectedImage: backgroundSelectedImage,
 				title: tab_name,
-	      height: 36,
+	      height: "36dp",
 				width: base_width,
 				borderColor: "#444444",
 				borderRadius: 1.0,
