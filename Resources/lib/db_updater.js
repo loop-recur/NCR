@@ -15,7 +15,12 @@ var _deleteTable = defn(function(cb, table) {
 });
 
 var _refreshDb = defn(function(table, json) {
-	_deleteTable(map.curry(App.db.save(table), json), table);
+	try{
+		_deleteTable(map.curry(App.db.save(table), json), table);
+	} catch(e) {
+		SchemaLoad.createDb({redo : true});
+		_deleteTable(map.curry(App.db.save(table), json), table);
+	}
 });
 
 var _callAndSave = defn(function(table, cb) {

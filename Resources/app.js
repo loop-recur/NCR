@@ -1,4 +1,3 @@
-// this sets the background color of the master UIView (when there are no windows/tab groups on it)
 Ti.include('initializers/init.js');
 App.run();
 
@@ -17,7 +16,7 @@ isAndroid = Ti.Platform.osname == 'android';
 isIPad = Ti.Platform.osname == 'ipad';
 isIPhone = Ti.Platform.osname == 'iphone';
 
-App.setHost("http://ncr.herokuapp.com/api");
+App.setHost("http://localhost:3000/api");
 
 App.db = LoopRecur.Db(Ti.Database, isAndroid);
 App.db.use("ncr");
@@ -28,5 +27,4 @@ Layouts[Ti.Platform.osname].application ? Layouts[Ti.Platform.osname].applicatio
 
 App.db.find("sessions", {}, when(empty, DbUpdater.loadCannedData));
 
-// DbUpdater.update();
 setTimeout(DbUpdater.update, 2000);

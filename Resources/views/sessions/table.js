@@ -12,16 +12,21 @@ Views.sessions.table = function(win, sessions) {
 			height:28,
 			width:"100%"
 		});
-	
-		var row = Ti.UI.createTableViewRow({
-			height:30,
-			opacity:0.75,
-			backgroundGradient:{
-				type:'linear',
-				colors:['#666666','#000001'],
-				backFillStart:false
+		
+		if(isAndroid) {
+			var properties = { backgroundColor: 'black'}
+		} else {
+			var properties = {
+				opacity:0.75,
+				backgroundGradient:{
+					type:'linear',
+					colors:['#666666','#000001'],
+					backFillStart:false
+				}
 			}
-		});
+		}
+
+		var row = Ti.UI.createTableViewRow(merge({ height:30 }, properties));
 	
 		row.add(name);
 		return row;

@@ -18,9 +18,18 @@ App.removeChildren = function(view, children) {
 	if(children) map(function(c){ view.remove(c); c = null; children = null; }, children);
 }
 
-App.swapView = function(view, action, params) {	
+App.swapView = function(view, action, params) {
 	return function(e) {
 		var children = view.children;
+		
+		var spinner = Ti.UI.createActivityIndicator({
+			style:Ti.UI.iPhone.ActivityIndicatorStyle.BIG,
+			height:30,
+			width:30
+		});
+		
+		view.add(spinner);
+		spinner.show();
 		App.action(view, action, params);
 		App.removeChildren(view, children);
 	}

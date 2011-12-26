@@ -12,8 +12,8 @@ Controllers.news = (function() {
 	}
 	
 	var index = function(view, params) {
-		if(params.name == "twitter1_filter") return Twitter.search('movies', view);
-		if(params.name == "twitter2_filter") return Twitter.timeline('codestrong', view);
+		if(params.name == "twitter1_filter") return Twitter.search('ncr', view);
+		if(params.name == "twitter2_filter") return Twitter.timeline('ncr', view);
 		if(params.name == "yammer_filter") return Yammer.messages(compose(view, _adaptYammers));
 	};
 		

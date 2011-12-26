@@ -14,6 +14,15 @@ Layouts.news = function(win) {
 			
 			view.add(scrollview);
 			
+			var spinner = Ti.UI.createActivityIndicator({
+				style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
+				height:30,
+				width:30
+			});
+
+			scrollview.add(spinner);
+			spinner.show();
+			
 			App.action(scrollview, "news#index", {name : mappings[e.source.id]});
 		}
 	}

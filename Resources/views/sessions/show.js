@@ -1,4 +1,8 @@
 Views.sessions.show = function(win, session) {	
+	var start = Date.parse(session.start_time);
+	var end = Date.parse(session.end_time);
+	var time = Formatter.timeSpan([start, end]);
+	
 	var view = Ti.UI.createView({
 		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
 	});
@@ -47,7 +51,7 @@ Views.sessions.show = function(win, session) {
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
 		height:35,
-		text:"January 11, 2012",
+		text: session.date.toString('MM/dd/yyyy'),
 		left:75,
 		width:217
 	});
@@ -59,7 +63,7 @@ Views.sessions.show = function(win, session) {
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
 		height:35,
-		text:'8:00AM - 10:00AM',
+		text:time,
 		left:75,
 		width:217
 	});
@@ -71,7 +75,7 @@ Views.sessions.show = function(win, session) {
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#444444',
 		height:35,
-		text:'Texas Ballroom',
+		text:session.location,
 		left:75,
 		width:217
 	});

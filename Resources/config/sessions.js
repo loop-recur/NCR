@@ -2,6 +2,18 @@
 
 Config['Sessions'] = [
 // WEDNESDAY
+{
+    id : 10,
+    speaker_id : "",	    
+		title : "Loading Additional Session Data...",    
+		description : "",
+    location : "",
+		start_time : "1/10/2012 08:00:00",
+		end_time : "1/10/2012 11:30:00",
+
+		created_at : "2011-12-07T21:14:55Z",
+    updated_at : "2011-12-09T21:17:16Z"
+},
 	{
 	    id : 1,
 	    speaker_id : 1,	    
