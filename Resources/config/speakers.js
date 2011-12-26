@@ -1,27 +1,27 @@
 Config['Speakers'] = [
 	{
 	    id : 1,
-			name : "Speaker 1",
-			bio : "Speaker 1 bio",
-	    company : "Speaker 1 company",
+			name : "Jason Reese",
+			bio : "With NCR for almost 10 years, Jason has a wealth of knowledge to share with his collegues at the conference.",
+	    company : "NCR",
 	
 	    created_at : "2011-12-09T17:22:35Z",
 	    updated_at : "2011-12-09T17:22:35Z"
 	},
 	{
 	    id : 2,
-			name : "Speaker 2",
-			bio : "Speaker 2 bio",
-	    company : "Speaker 2 company",
+			name : "Taylor Smith",
+			bio : "As a developer working with NCR, Taylor is working to increase efficiency of all NCR reps.",
+	    company : "NCR",
 	
 	    created_at : "2011-12-09T17:22:35Z",
 	    updated_at : "2011-12-09T17:22:35Z"
 	},
 	{
 	    id : 3,
-			name : "Speaker 3",
-			bio : "Speaker 3 bio",
-	    company : "Speaker 3 company",
+			name : "Brian Lonsdorf",
+			bio : "As head of sales for the eastern region, Brian brings experience over his 5 years in one of the quickest growing regions in the world.",
+	    company : "NCR",
 	
 	    created_at : "2011-12-09T17:22:35Z",
 	    updated_at : "2011-12-09T17:22:35Z"
