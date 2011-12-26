@@ -74,7 +74,7 @@ Views.ipad.speakers.index = function(win, speakers) {
 			return {index : state.index + padding + (session.title.length * 2) }
 		}
 		
-		// App.db.find('sessions', {speaker_id: speaker.id}, addSessions);
+		App.db.find('sessions', {speaker_id: speaker.id}, addSessions);
 		
 		row.add(name);
 		row.add(bio);

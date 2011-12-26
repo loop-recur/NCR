@@ -2,6 +2,7 @@ Schema = {
 	sessions : {
 			title:"string",
 			description:"text",
+			location:"string",
 			start_time:"datetime",
 			end_time:"datetime",
 			speaker_id: "integer",

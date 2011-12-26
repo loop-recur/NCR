@@ -1,7 +1,5 @@
-UI.SubTabs = function(win, tab_names, options) {	
-	
-	var width = Ti.Platform.displayCaps.platformWidth
-	, backgroundImage = 'images/buttonbar/button2_selected.png'
+UI.SubTabs = function(win, tab_names, options) {
+	var backgroundImage = 'images/buttonbar/button2_selected.png'
 	, backgroundSelectedImage = 'images/buttonbar/button2_unselected_shadow.png'
 	, object = {}
 	, options = options || {};
@@ -39,7 +37,7 @@ UI.SubTabs = function(win, tab_names, options) {
 		var index = tab_names.indexOf(tab_name);
 		var left = ((index+1) * base_width);
 		
-		if(isIPhone) {			
+		if(!isIPad) {			
 			if(!options.center) {
 				left = left - 130;
 			} else {
@@ -63,7 +61,7 @@ UI.SubTabs = function(win, tab_names, options) {
 	
 		tab.addEventListener('click', function(e) {
 			App.removeChildren(scrollview, scrollview.children);
-			object.delegate.getContent(scrollview, e);
+			object.delegate.getContent(scrollview, e);			
 		});
 		
 		return tab;
