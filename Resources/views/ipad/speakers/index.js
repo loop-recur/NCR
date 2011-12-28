@@ -27,7 +27,7 @@ Views.ipad.speakers.index = function(win, speakers) {
 		return row;
 	}
 	
-	var createTableViewRow = function(speaker) {				
+	var createTableViewRow = function(speaker) {
 		var name = Ti.UI.createLabel({
 			text:speaker.name, 
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
@@ -55,24 +55,21 @@ Views.ipad.speakers.index = function(win, speakers) {
 			id: speaker.id
 		});
 		
-		var addSessions = function(sessions) {
-			reduce(addSession, {index : 20}, sessions);
-		}
-		
 		var addSession = function(state, session) {
-			var padding = 100;
-			
 			var title = Ti.UI.createLabel({
 				text:session.title, 
-				font:{fontFamily:'HelveticaNeue-Bold',fontSize:"20dp"},
 				color:"black",
-				top: 45,
-				left:state.index
+				height: 30,
+				left: 10,
+				top: 20 + (state.count * 30)
 			});
-
+			
+			row.height += (state.count * 15);
 			row.add(title);
-			return {index : state.index + padding + (session.title.length * 2) }
+			return {count : state.count + 1 }
 		}
+		
+		var addSessions = reduce(addSession, {count : 1});
 		
 		App.db.find('sessions', {speaker_id: speaker.id}, addSessions);
 		

@@ -30,6 +30,12 @@ App.swapView = function(view, action, params) {
 		
 		view.add(spinner);
 		spinner.show();
+		
+		Ti.App.addEventListener('hide_activity_indicator', function(e) {
+			spinner.hide();
+			view.remove(spinner);
+		});
+		
 		App.action(view, action, params);
 		App.removeChildren(view, children);
 	}

@@ -78,9 +78,9 @@ Views.ipad.sessions.index = function(win, params, sessions) {
 				font:{fontFamily:'HelveticaNeue,',fontSize:"14dp"},
 				color:"#666666",
 				height:16,
-				width:150,
+				width:'auto',
 				top: 10,
-				right:10,
+				right:5,
 				textAlign:'right'
 			});
 
