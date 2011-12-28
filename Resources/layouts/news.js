@@ -23,6 +23,11 @@ Layouts.news = function(win) {
 			scrollview.add(spinner);
 			spinner.show();
 			
+			Ti.App.addEventListener('hide_activity_indicator', function(e) {
+				spinner.hide();
+				scrollview.remove(spinner);
+			});
+			
 			App.action(scrollview, "news#index", {name : mappings[e.source.id]});
 		}
 	}
