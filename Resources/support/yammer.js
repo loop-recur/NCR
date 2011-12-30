@@ -74,7 +74,7 @@ Yammer = (function() {
 	}
 	
 	var messages = function(cb) {
-		api("https://www.yammer.com/api/v1/messages.json", "GET", '', function(response) {
+		api("https://www.yammer.com/api/v1/messages.json", "GET", 'limit=15', function(response) {
 			cb(response);
 		});
 	}

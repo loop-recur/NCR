@@ -5,7 +5,8 @@ Layouts.application = function() {
 	
 	var sessions_win = Ti.UI.createWindow({
 			backgroundImage:app_background_image,
-			navBarHidden:true
+			navBarHidden:true,
+			orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 	});
 	
 	sessions_win.addEventListener('open', App.action.p(sessions_win, "sessions#index"));
@@ -18,7 +19,8 @@ Layouts.application = function() {
 	
 	var speakers_win = Ti.UI.createWindow({
 			backgroundImage:app_background_image,
-			navBarHidden:true
+			navBarHidden:true,
+			orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 	});
 	
 	speakers_win.addEventListener('open', App.action.p(speakers_win, "speakers#index"));
@@ -44,7 +46,8 @@ Layouts.application = function() {
 	
 	var news_win = Ti.UI.createWindow({
 			backgroundImage:app_background_image,
-			navBarHidden:true
+			navBarHidden:true,
+			orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 	});
 	
 	news_win.addEventListener('open', Layouts.news.p(news_win));
