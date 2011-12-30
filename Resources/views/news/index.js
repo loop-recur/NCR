@@ -26,7 +26,7 @@ Views.news.index = function(win, posts) {
 			backgroundImage:"images/footer/NCR_iPad2_feed_quote_box_left.png",
 			height:"90dp",
 			width:"250dp",
-			right:"2dp",
+			left:"68dp",
 			bottom:"15dp"
 		});
 		
@@ -68,16 +68,26 @@ Views.news.index = function(win, posts) {
 		tableView.appendRow(createTableViewRow(post));
 	}
 	
-	var tableView = Ti.UI.createTableView({
-		backgroundColor:"transparent",
-		top:"10dp"
-	});
+	if(isAndroid) {
+		var height = Ti.Platform.displayCaps.platformHeight;
+		
+		var tableView = Ti.UI.createTableView({
+			backgroundColor:"transparent",
+			top:"10dp",
+			height:height
+		});
+	} else {
+		var tableView = Ti.UI.createTableView({
+			backgroundColor:"transparent",
+			top:"10dp"
+		});
+	}
 	
 	setTimeout(function() {
 		map(appendRow, posts);
 	}, 500);
 	
 	
-	view.add(tableView);
-	win.add(view);
+	win.add(tableView);
+	// win.add(view);
 }
