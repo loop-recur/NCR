@@ -1,6 +1,6 @@
 Twitter = (function() {
 
-var tweet_count = 25;
+var tweet_count = (Ti.Platform.osname == 'android') ? 10 : 25;
 var timeout = 11000;
 
 var request = function(base_url, url, fun) {
