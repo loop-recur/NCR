@@ -58,9 +58,10 @@ Views.ipad.speakers.index = function(win, speakers) {
 		var addSession = function(state, session) {
 			var title = Ti.UI.createLabel({
 				text:session.title, 
-				color:"black",
+				font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
+				color:"#333333",
 				height: 30,
-				left: 10,
+				left: 30,
 				top: 20 + (state.count * 30)
 			});
 			

@@ -10,7 +10,7 @@
     </deployment-targets>
     <id>com.looprecur.ncr</id>
     <name>ncr</name>
-    <version>0.6</version>
+    <version>1.0</version>
     <publisher>loop/recur</publisher>
     <url>http://www.looprecur.com</url>
     <description>NCR Conference Schedule and Information</description>
