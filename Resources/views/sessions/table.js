@@ -79,16 +79,21 @@ Views.sessions.table = function(win, sessions) {
 		return flatten([createHeaderRow(date), map(createTableViewRow, sessions)]);
 	}
 
-	var createData = compose(flatten, omap(createGroupedRow));
-
 	var tableView = Ti.UI.createTableView({
-		data:createData(sessions),
 		backgroundColor:"transparent",
 		bottom:0
 	});
 	
+	var appendRow = function(row) {
+		tableView.appendRow(row);
+	}
+	
+	var createData = compose(map(appendRow), flatten, omap(createGroupedRow));
+	setTimeout(createData.p(sessions), 500);
+
 	var refreshTable = function(view, sessions, params) {
-		tableView.setData(createData(sessions));
+		tableView.setData([]);
+		createData(sessions);
 	}
 	
 	tableView.addEventListener('click', function(e) {

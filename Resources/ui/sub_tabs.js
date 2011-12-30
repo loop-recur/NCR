@@ -5,7 +5,8 @@ UI.SubTabs = function(win, tab_names, options) {
 	, options = options || {};
 	
 	var view = Ti.UI.createView({
-		backgroundImage: "images/NCR_iPad2_main_bg.png"
+		backgroundImage: "images/NCR_iPad2_main_bg.png",
+		height: "100%"
 	});
 	
 	var scrollview = Ti.UI.createView({
@@ -51,11 +52,11 @@ UI.SubTabs = function(win, tab_names, options) {
 				backgroundSelectedImage: backgroundSelectedImage,
 				title: tab_name,
 	      height: "36dp",
-				width: base_width,
+				width: base_width+'dp',
 				borderColor: "#444444",
 				borderRadius: 1.0,
 				font:{fontFamily:'GillSans',fontSize:"15dp",fontWeight:'regular'},
-	      left: left,
+	      left: left+"dp",
 	      id: tab_name
 	  });
 	

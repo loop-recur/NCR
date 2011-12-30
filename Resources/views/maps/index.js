@@ -10,14 +10,14 @@ Views.maps.index = function(win) {
 			var scrollview = Ti.UI.createScrollView({
 				contentWidth:"auto",
 				contentHeight:'auto',
+				width:'100%',
+				height:'100%',
 				showHorizontalScrollIndicator:true,
 				showVerticalScrollIndicator:true
 			});
 			
 			scrollview.add(Ti.UI.createImageView({
-				image:'images/maps/'+e.source.id.replace(/\s+/g, '').toLowerCase()+'.png',
-				height:'auto',
-				width:'auto'
+				image:'images/maps/'+e.source.id.replace(/\s+/g, '').toLowerCase()+'.png'
 			}));
 			
 			view.add(scrollview);

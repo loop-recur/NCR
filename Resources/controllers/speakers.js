@@ -3,7 +3,7 @@ Controllers.speakers = (function() {
 	
 	var index = function(view) {
 		var _lastName = compose(last, split(" "), '.name');
-		App.db.find(_name, {}, compose(view, groupBy(compose(first, Formatter.titleize, _lastName))));
+		App.db.find(_name, {}, compose(view, groupBy(compose(first, Formatter.titleize, _lastName)), reverse, sortBy(_lastName)));
 	};
 	
 	var show = function(view, params) {

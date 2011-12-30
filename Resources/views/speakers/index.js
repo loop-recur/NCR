@@ -57,15 +57,20 @@ Views.speakers.index = function(win, speakers) {
 		return flatten([createHeaderRow(letter), map(createTableViewRow, speakers)]);
 	}
 	
-	var createData = compose(flatten, omap(createGroupedRow));
-	
 	var tableView = Ti.UI.createTableView({
-		data:createData(speakers),
 		backgroundColor:'transparent'
 	});
 	
+	var appendRow = function(row) {
+		tableView.appendRow(row);
+	}
+	
+	var createData = compose(map(appendRow), flatten, omap(createGroupedRow));
+	createData(speakers);
+	
 	var refreshTable = function(speakers) {
-		tableView.setData(createData(speakers));
+		tableView.setData([]);
+		createData(speakers);
 	}
 	
 	if(!isIPad) {

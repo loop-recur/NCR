@@ -6,6 +6,8 @@ Layouts.news = function(win) {
 	subtabs.delegate = {
 		getContent : function(view, e) {
 			var scrollview = Ti.UI.createScrollView({
+				width:'100%',
+				height:'100%',
 				contentWidth:"auto",
 				contentHeight:'auto',
 				showHorizontalScrollIndicator:false,

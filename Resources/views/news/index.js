@@ -64,11 +64,19 @@ Views.news.index = function(win, posts) {
 		return row;
 	}
 	
+	var appendRow = function(post) {
+		tableView.appendRow(createTableViewRow(post));
+	}
+	
 	var tableView = Ti.UI.createTableView({
-		data:map(createTableViewRow, posts),
 		backgroundColor:"transparent",
 		top:"10dp"
 	});
+	
+	setTimeout(function() {
+		map(appendRow, posts);
+	}, 500);
+	
 	
 	view.add(tableView);
 	win.add(view);
