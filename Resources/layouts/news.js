@@ -5,32 +5,21 @@ Layouts.news = function(win) {
 	
 	subtabs.delegate = {
 		getContent : function(view, e) {
-			var scrollview = Ti.UI.createScrollView({
-				width:'100%',
-				height:'100%',
-				contentWidth:"auto",
-				contentHeight:'auto',
-				showHorizontalScrollIndicator:false,
-				showVerticalScrollIndicator:true
-			});
-			
-			view.add(scrollview);
-			
 			var spinner = Ti.UI.createActivityIndicator({
 				style:Ti.UI.iPhone.ActivityIndicatorStyle.DARK,
 				height:30,
 				width:30
 			});
 
-			scrollview.add(spinner);
+			view.add(spinner);
 			spinner.show();
 			
 			Ti.App.addEventListener('hide_activity_indicator', function(e) {
 				spinner.hide();
-				scrollview.remove(spinner);
+				view.remove(spinner);
 			});
 			
-			App.action(scrollview, "news#index", {name : mappings[e.source.id]});
+			App.action(view, "news#index", {name : mappings[e.source.id]});
 		}
 	}
 }

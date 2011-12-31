@@ -1,8 +1,4 @@
-Views.news.index = function(win, posts) {	
-	var view = Ti.UI.createView({
-		backgroundColor: "transparent"
-	});
-	
+Views.news.index = function(win, posts) {		
 	var createTableViewRow = function(post) {
 		
 		var avatar_bg = Ti.UI.createView({
@@ -68,26 +64,16 @@ Views.news.index = function(win, posts) {
 		tableView.appendRow(createTableViewRow(post));
 	}
 	
-	if(isAndroid) {
-		var height = Ti.Platform.displayCaps.platformHeight;
-		
-		var tableView = Ti.UI.createTableView({
-			backgroundColor:"transparent",
-			top:"10dp",
-			height:height
-		});
-	} else {
-		var tableView = Ti.UI.createTableView({
-			backgroundColor:"transparent",
-			top:"10dp"
-		});
-	}
-	
+	var tableView = Ti.UI.createTableView({
+		backgroundColor:"transparent",
+		top:"10dp",
+		height:"100%"
+	});
+
 	setTimeout(function() {
 		map(appendRow, posts);
 	}, 500);
 	
 	
 	win.add(tableView);
-	// win.add(view);
 }

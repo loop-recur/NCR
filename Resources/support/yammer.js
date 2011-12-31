@@ -5,6 +5,7 @@ Yammer = (function() {
 	var timeout = 11000;
 	var cfg = {};
 	var accessor = {};
+	var limit = (Ti.Platform.osname == 'android') ? 15 : 25;
 	
 	function getHeader(parameters) {
 		var init = true;
@@ -64,17 +65,17 @@ Yammer = (function() {
 		
 		var header = getHeader(message.parameters);
 
-		xhr.setRequestHeader("Authorization", header);		
+		xhr.setRequestHeader("Authorization", header);
 		xhr.send();
 	}
 	
 	var config = function(attrs) {
-		cfg = attrs;		
+		cfg = attrs;
 		accessor = { consumerSecret: cfg.consumer_secret, tokenSecret: cfg.access_token_secret };
 	}
 	
 	var messages = function(cb) {
-		api("https://www.yammer.com/api/v1/messages.json", "GET", 'limit=15', function(response) {
+		api("https://www.yammer.com/api/v1/messages.json", "GET", 'limit='+limit, function(response) {
 			cb(response);
 		});
 	}
