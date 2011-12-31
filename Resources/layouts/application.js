@@ -33,7 +33,8 @@ Layouts.application = function() {
 	
 	var maps_win = Ti.UI.createWindow({
 			backgroundImage:app_background_image,
-			navBarHidden:true
+			navBarHidden:true,
+			orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]
 	});
 	
 	maps_win.addEventListener('open', Views.maps.index.p(maps_win));

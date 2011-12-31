@@ -39,7 +39,7 @@ Views.sessions.table = function(win, sessions) {
 		var session = session;
 		var title = session.title;
 		var description = session.description;
-		var time = Formatter.timeSpan([start, end]);
+		var time = try{ Formatter.timeSpan([start, end]); }catch(e){ "" }
 	
 		var title = Ti.UI.createLabel({
 			text:title, 

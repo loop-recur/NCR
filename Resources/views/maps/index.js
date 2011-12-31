@@ -16,9 +16,18 @@ Views.maps.index = function(win) {
 				showVerticalScrollIndicator:true
 			});
 			
-			scrollview.add(Ti.UI.createImageView({
+			var map_image = Ti.UI.createImageView({
 				image:'images/maps/'+e.source.id.replace(/\s+/g, '').toLowerCase()+'.png'
-			}));
+			});
+			
+			scrollview.add(map_image);
+			
+			map_image.addEventListener('click', function(){
+				var win = Ti.UI.createWindow({fullscreen: true});
+				win.add(scrollview);
+				win.open();
+			});
+			
 			
 			view.add(scrollview);
 		}
