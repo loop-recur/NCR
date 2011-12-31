@@ -10,7 +10,7 @@ Views.sessions.index = function(win, params, sessions) {
 		win.add(logo);
 		
 		var view = Ti.UI.createView({
-			top:"82dp"
+			top:"105dp"
 		});
 
 		win.add(view);

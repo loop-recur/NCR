@@ -66,7 +66,7 @@ Views.news.index = function(win, posts) {
 	
 	var tableView = Ti.UI.createTableView({
 		backgroundColor:"transparent",
-		top:"10dp",
+		// top:"10dp",
 		height:"100%"
 	});
 
