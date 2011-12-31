@@ -7,6 +7,11 @@ Views.maps.index = function(win) {
 	
 	subtabs.delegate = {
 		getContent : function(view, e) {
+			
+			var map_image = Ti.UI.createImageView({
+				image:'images/maps/'+e.source.id.replace(/\s+/g, '').toLowerCase()+'.png'
+			});
+			
 			var makeView = function() {
 				var scrollview = Ti.UI.createScrollView({
 					contentWidth:"auto",
@@ -15,10 +20,6 @@ Views.maps.index = function(win) {
 					height:'100%',
 					showHorizontalScrollIndicator:true,
 					showVerticalScrollIndicator:true
-				});
-
-				var map_image = Ti.UI.createImageView({
-					image:'images/maps/'+e.source.id.replace(/\s+/g, '').toLowerCase()+'.png'
 				});
 				
 				scrollview.add(map_image);
