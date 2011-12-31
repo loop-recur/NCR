@@ -29,7 +29,7 @@ Views.maps.index = function(win) {
 			
 			map_image.addEventListener('click', function(){
 				var win = Ti.UI.createWindow({fullscreen: true});
-				win.add(makeView());
+				win.add(map_image);
 				win.open();
 			});
 			
