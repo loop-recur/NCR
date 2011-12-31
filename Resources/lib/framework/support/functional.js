@@ -6,6 +6,39 @@ defn = function(fn) {
 	}
 }
 
+Function.prototype.memoize = function() {
+    var pad  = {};
+    var self = this;
+    var obj  = arguments.length > 0 ? arguments[i] : null;
+
+    var memoizedFn = function() {
+        // Copy the arguments object into an array: allows it to
+        // be used as a cache key.
+        var args = [];
+        for (var i = 0; i < arguments.length; i++) {
+            args[i] = arguments[i];
+        }
+
+        // Evaluate the memoized function if it hasn't been
+        // evaluated with these arguments before.
+        if (!(args in pad)) {
+            pad[args] = self.apply(obj, arguments);
+        }
+
+        return pad[args];
+    }
+
+    memoizedFn.unmemoize = function() {
+        return self;
+    }
+
+    return memoizedFn;
+}
+
+Function.prototype.unmemoize = function() {
+    return null;
+}
+
 typeof window=='undefined'&&(window={});var Functional=window.Functional||{};install=function(except){var source=Functional,target=window;for(var name in source)
 name=='install'||name.charAt(0)=='_'||except&&name in except||{}[name]||(target[name]=source[name]);}
 compose=function(){var fns=map(Function.toFunction,arguments),arglen=fns.length;return function(){for(var i=arglen;--i>=0;)
