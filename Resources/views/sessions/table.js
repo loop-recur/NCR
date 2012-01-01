@@ -39,7 +39,7 @@ Views.sessions.table = function(win, sessions) {
 		var session = session;
 		var title = session.title;
 		var description = session.description;
-		var time = Formatter.timeSpan([start, end]);
+		var time = (start && end) ? Formatter.timeSpan([start, end]) : "";
 	
 		var title = Ti.UI.createLabel({
 			text:title, 
@@ -96,12 +96,16 @@ Views.sessions.table = function(win, sessions) {
 		createData(sessions);
 	}
 	
+	var updateTable = function(view, sessions, params) {
+		tableView.setData(compose(flatten, omap(createGroupedRow))(sessions));
+	}
+	
 	tableView.addEventListener('click', function(e) {
 		if(!e.source.id) return;
 		win.fireEvent('animateToView', {action: "sessions#show", params: {id : e.source.id}});
 	});
 
-	Ti.App.addEventListener("apiUpdateFinish", Controllers.sessions.index.p(refreshTable));
+	Ti.App.addEventListener("apiUpdateFinish", Controllers.sessions.index.p(updateTable));
 
 	view.add(tableView);
 	win.add(view);

@@ -38,18 +38,26 @@ LoopRecur.Db = function(_db, isAndroid) {
 		_execute("DELETE FROM "+table_name, false, cb);
 	});
 	
-	var find = defn(function(table_name, query, cb) {
+	var find = function(table_name, query, options, cb) {
 		var arr = _toArray(query);
+		if(typeof options == 'function') {
+			cb = options;
+			options = {};
+		}
 		
 		if(arr.length < 1) {
-			_execute("SELECT * FROM "+table_name, null, cb);
+			var sql_string = "SELECT * FROM "+table_name;
+			if(options.order_by) sql_string += " ORDER BY "+ options.order_by;
+			_execute(sql_string, null, cb);
 		} else {
 			_keysVals(query, function(keys, vals) {
 				var real_keys = map('x+"=?"',keys).join(" AND ");
-				_execute("SELECT * FROM "+table_name+" WHERE "+real_keys, vals, cb);
+				var sql_string = "SELECT * FROM "+table_name+" WHERE "+real_keys;
+				if(options.order_by) sql_string += " ORDER BY "+ options.order_by;
+				_execute(sql_string, vals, cb);
 			});
 		}
-	});
+	};
 	
 	var save = defn(function(table_name, fields) {
 		_keysVals(fields, function(keys, vals) {

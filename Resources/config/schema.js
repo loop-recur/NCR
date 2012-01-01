@@ -3,6 +3,7 @@ Schema = {
 			title:"string",
 			description:"text",
 			location:"string",
+			date:"date",
 			start_time:"datetime",
 			end_time:"datetime",
 			speaker_id: "integer",

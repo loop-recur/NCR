@@ -45,7 +45,7 @@ App.animateToView = function(tab) {
 	_getTitle = compose(Formatter.titleize, first, split("#"));
 	
 	return function(e) {
-		var win = Ti.UI.createWindow({title:(e.title || _getTitle(e.action)), navBarHidden:false});
+		var win = Ti.UI.createWindow({title:(e.title || _getTitle(e.action)), navBarHidden:false, orientationModes: [Ti.UI.PORTRAIT, Ti.UI.UPSIDE_PORTRAIT]});
 		App.action(win, e.action, e.params);
 		tab.open(win,{animated:true});
 	}
