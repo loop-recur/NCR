@@ -2,8 +2,10 @@ Ti.include('initializers/init.js');
 App.run();
 
 Ti.include('/support/date.js');
-require('support/twitterlib');
-require('support/yammer');
+Ti.include('/support/oauth.js');
+Ti.include('/support/sha1.js');
+Ti.include('/support/twitterlib');
+Ti.include('/support/yammer');
 
 Yammer.config({
 	oauth_consumer_key: "yvBd07vZX7562qlAohvPQ",
@@ -27,4 +29,4 @@ Layouts[Ti.Platform.osname].application ? Layouts[Ti.Platform.osname].applicatio
 
 App.db.find("sessions", {}, when(empty, DbUpdater.loadCannedData));
 
-setTimeout(DbUpdater.update, 2000);
+setTimeout(DbUpdater.update, 3000);

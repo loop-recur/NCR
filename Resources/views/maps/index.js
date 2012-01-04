@@ -27,6 +27,7 @@ Views.maps.index = function(win) {
 			} else {
 				var webview = Ti.UI.createWebView({
            scalesPageToFit: true,
+					 top: 0,
            url: "pages/"+map_name+'.html'
         });
 				view.add(webview);

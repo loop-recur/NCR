@@ -1,6 +1,4 @@
 Yammer = (function() {
-	Ti.include('support/oauth.js');
-	Ti.include('support/sha1.js');
 	
 	var timeout = 11000;
 	var cfg = {};
