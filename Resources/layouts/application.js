@@ -67,4 +67,5 @@ Layouts.application = function() {
 	
 	
 	tabGroup.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
+	setTimeout(DbUpdater.update, 1000);
 }

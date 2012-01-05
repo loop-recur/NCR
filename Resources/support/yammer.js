@@ -1,5 +1,4 @@
 Yammer = (function() {
-	
 	var timeout = 11000;
 	var cfg = {};
 	var accessor = {};

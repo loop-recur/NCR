@@ -30,5 +30,5 @@ Layouts.ipad.application = function() {
 	main_window.add(main_content);
 	main_window.add(footer);
 	main_window.open({transition:Ti.UI.iPhone.AnimationStyle.CURL_DOWN});
-	
+	setTimeout(DbUpdater.update, 1000);
 }
