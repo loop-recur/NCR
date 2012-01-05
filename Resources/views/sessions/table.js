@@ -93,11 +93,7 @@ Views.sessions.table = function(win, sessions) {
 
 	var refreshTable = function(view, sessions, params) {
 		tableView.setData([]);
-		createData(sessions);
-	}
-	
-	var updateTable = function(view, sessions, params) {
-		tableView.setData(compose(flatten, omap(createGroupedRow))(sessions));
+		setTimeout(createData.p(sessions), 500);
 	}
 	
 	tableView.addEventListener('click', function(e) {
@@ -105,7 +101,7 @@ Views.sessions.table = function(win, sessions) {
 		win.fireEvent('animateToView', {action: "sessions#show", params: {id : e.source.id}});
 	});
 
-	Ti.App.addEventListener("apiUpdateFinish", Controllers.sessions.index.p(updateTable));
+	Ti.App.addEventListener("apiUpdateFinish", Controllers.sessions.index.p(refreshTable));
 
 	view.add(tableView);
 	win.add(view);
