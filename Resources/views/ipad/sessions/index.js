@@ -45,13 +45,13 @@ Views.ipad.sessions.index = function(win, params, sessions) {
 		});
 			
 		var description = Ti.UI.createLabel({
-			text:description, 
+			text:description +"\n\n", 
 			font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 			color:"#333333",
 			left:35,
-			top:35,
+			top:45,
 			height:"auto",
-			width:"auto"
+			width:"80%"
 		});
 		
 		var time = Ti.UI.createLabel({
@@ -65,7 +65,7 @@ Views.ipad.sessions.index = function(win, params, sessions) {
 		});
 			
 		var row = Ti.UI.createTableViewRow({
-			height:80
+			height:'auto'
 		});
 		
 		row.add(title);

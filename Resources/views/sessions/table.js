@@ -42,7 +42,7 @@ Views.sessions.table = function(win, sessions) {
 		try{ var time = Formatter.timeSpan([start, end]); }catch(e){ var time = "" };
 	
 		var title = Ti.UI.createLabel({
-			text:title, 
+			text:title+"\n\n", 
 			font:{fontFamily:'GillSans',fontSize:"18dp",fontWeight:'regular'},
 			color:"#444444",
 			left:"10dp",
@@ -64,7 +64,7 @@ Views.sessions.table = function(win, sessions) {
 		});
 		
 		var row = Ti.UI.createTableViewRow({
-			height:"60dp",
+			height:"auto",
 			id: session.id,
 			className:'session'
 		});

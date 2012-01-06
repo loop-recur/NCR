@@ -8,11 +8,24 @@ Views.sessions.show = function(win, session) {
 	var view = Ti.UI.createView({
 		backgroundImage:"images/phones/NCR_iPhone_main_bg.png"
 	});
+	
+	var description_top = (session.title.length > 100) ? "117dp" : "70dp";
+	
+	var scroll_view = Ti.UI.createScrollView({
+		top: description_top,
+    height: "105dp",
+		left:"27dp",
+		width:"280dp",
+		contentWidth:"auto",
+		contentHeight:'auto',
+		showHorizontalScrollIndicator:false,
+		showVerticalScrollIndicator:true
+	});
 
 	var title = Ti.UI.createLabel({
 		font:{fontFamily:'GillSans',fontSize:"20dp",fontWeight:'regular'},
 		color:'#444444',
-		height:"49dp",
+		height:"auto",
 		text:session.title,
 		top:"20dp",
 		left:"27dp",
@@ -20,13 +33,10 @@ Views.sessions.show = function(win, session) {
 	});
 	
 	var description = Ti.UI.createLabel({
-		top:"117dp",
 		font:{fontFamily:'GillSans-Light',fontSize:"18dp",fontWeight:'regular'},
 		color:'#666666',
-		height:"105dp",
-		text:session.description,
-		left:"27dp",
-		width:"280dp"
+		height:"auto",
+		text:session.description
 	});
 	
 	var speakers = Ti.UI.createLabel({
@@ -115,7 +125,8 @@ Views.sessions.show = function(win, session) {
 	view.add(location_icon);
 	
 	view.add(title);
-	view.add(description);
+	scroll_view.add(description);
+	view.add(scroll_view);
 	
 	win.add(view);
 }

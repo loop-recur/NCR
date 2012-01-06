@@ -5,9 +5,7 @@ var tables = keys(Schema);
 var _start = fireEvent.p('apiUpdateStart', {});
 
 var _finish = function() {
-	log("=============FIRING EVENT========");
 	fireEvent('apiUpdateFinish', {});
-	log("=============FIRED========");
 }
 
 var _saveToDb = defn(function(table, json) {
